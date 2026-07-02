@@ -1,0 +1,22 @@
+.my-fade-enter-active,
+.my-fade-leave-active {
+  transition: opacity 1s ease;
+}
+
+.my-fade-enter-active {
+  z-index: 1; /* neue Folie liegt oben */
+}
+
+.my-fade-leave-active {
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* alte Folie liegt unten */
+}
+
+.my-fade-enter-from {
+  opacity: 0;
+}
+
+.my-fade-leave-to {
+  opacity: 1; /* bleibt während der ganzen Dauer sichtbar */
+}

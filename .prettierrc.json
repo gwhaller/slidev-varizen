@@ -1,0 +1,20 @@
+{
+  "overrides": [
+    {
+      "files": ["slides.md", "pages/*.md"],
+      "options": {
+        "parser": "slidev",
+        "plugins": ["prettier-plugin-slidev"]
+      }
+    },
+    {
+      "files": ["**/*.svg"],
+      "options": {
+        "parser": "xml",
+        "plugins": ["@prettier/plugin-xml"],
+        "xmlWhitespaceSensitivity": "ignore",
+        "useTabs": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="200"
+   height="200"
+   viewBox="0 0 200 200"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <path
+     id="square-4"
+     fill="#cccccc"
+     stroke="#000000"
+     stroke-width="2.71368"
+     d="M 29.007497,39.931078 H 185.56456 V 157.52526 H 29.007497 Z" />
+  <path
+     id="square"
+     fill="#cccccc"
+     stroke="#000000"
+     stroke-width="2"
+     d="M50,50 L150,50 L150,150 L50,150 Z" />
+  <path
+     id="extra"
+     fill="#cccccc"
+     stroke="#000000"
+     stroke-width="0.209662"
+     d="M 159,24 H 170 V 35 H 159 Z" />
+  <path
+     id="circle"
+     fill="#cccccc"
+     stroke="#000000"
+     stroke-width="2"
+     d="m 99.836245,50 c 27.609995,0 49.999995,22.39 49.999995,50 0,27.61 -22.39,50 -49.999995,50 -27.61,0 -50,-22.39 -50,-50 0,-27.61 22.39,-50 50,-50 z" />
+</svg>
