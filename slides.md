@@ -29,16 +29,11 @@ duration: 35min
 ---
 clicks: 2
 transition: my-fade
+src: ./pages/zoomleg.md
 ---
 
-<div class="flex justify-center">
-  <Zooming />
-</div>
-
 ---
-src: ./pages/morphsvg.md
----
-
+src: ./pages/venepump.md
 ---
 
 # Welcome to Slidev

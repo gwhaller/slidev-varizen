@@ -119,11 +119,14 @@
 				transform="matrix(0.21269151,0,0,0.25577576,885.32304,785.4231)"
 				style="display:inline"
 			>
-				<g id="g5" transform="matrix(1.7,0,0,1,-76,0)"
-				   motion-preview-transform="matrix(1.7,0,0,1,-76,0)"
-				   motion-initial="{ scaleX: 1 }"
-				   motion-click-1="{ scaleX: 1.7, transition: { duration: 700, ease: 'easeInOut' } }"
-				   motion-style="transform-box: fill-box; transform-origin: center">
+				<g
+					id="g5"
+					transform="matrix(1.7,0,0,1,-76,0)"
+				  motion-preview-transform="matrix(1.7,0,0,1,-76,0)"
+				  motion-initial="{ scaleX: 1 }"
+				  motion-click-1="{ scaleX: 1.7, transition: { duration: 700, ease: 'easeInOut' } }"
+				  motion-style="transform-box: fill-box; transform-origin: center"
+				>
 					<path
 						style="display:inline;fill:#f99775;fill-opacity:1;fill-rule:evenodd;stroke:#f99775;stroke-width:0.238125;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
 						d="m 108.52144,46.284889 c 0,0 14.89006,38.198661 14.6483,73.408661 -0.24175,35.21 -10.94925,69.46035 -10.94925,69.46035 l -8.26917,-0.26252 c 0,0 -10.283995,-33.4462 -11.155789,-69.21407 C 91.923738,83.909443 108.52144,46.284889 108.52144,46.284889 Z"
@@ -174,11 +177,14 @@
 				transform="matrix(0.21269151,0,0,0.25577576,867.76615,785.30923)"
 				style="display:inline"
 			>
-				<g id="g6" inkscape:label="animate" transform="matrix(1.7,0,0,1,-76,0)"
-				   motion-preview-transform="matrix(1.7,0,0,1,-76,0)"
-				   motion-initial="{ scaleX: 1 }"
-				   motion-click-1="{ scaleX: 1.7, transition: { duration: 700, ease: 'easeInOut' } }"
-				   motion-style="transform-box: fill-box; transform-origin: center">
+				<g
+				  id="g6"
+					inkscape:label="animate" transform="matrix(1.7,0,0,1,-76,0)"
+					motion-preview-transform="matrix(1.7,0,0,1,-76,0)"
+					motion-initial="{ scaleX: 1 }"
+					motion-click-1="{ scaleX: 1.7, transition: { duration: 700, ease: 'easeInOut' } }"
+					motion-style="transform-box: fill-box; transform-origin: center"
+				>
 					<path
 						style="display:inline;fill:#f99775;fill-opacity:1;fill-rule:evenodd;stroke:#f99775;stroke-width:0.238125;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
 						d="m 108.52144,46.284889 c 0,0 14.89006,38.198661 14.6483,73.408661 -0.24175,35.21 -10.94925,69.46035 -10.94925,69.46035 l -8.26917,-0.26252 c 0,0 -10.283995,-33.4462 -11.155789,-69.21407 C 91.923738,83.909443 108.52144,46.284889 108.52144,46.284889 Z"
