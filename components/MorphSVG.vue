@@ -28,7 +28,7 @@ onSlideEnter(() => {
 function parseMotionObj(str) {
 	if (!str) return null;
 	try {
-		return new Function(`return (${str})`)();
+		return JSON.parse(str);
 	} catch {
 		return null;
 	}
@@ -163,10 +163,9 @@ onMounted(() => {
 		});
 
 		// motion-from-* / motion-to-* Paar-Morphing
-		// Namenskonvention in Inkscape: id="motion-from-<name>" (Ausgangspfad)
-		//                               id="motion-to-<name>"   (Zielpfad, wird entfernt)
+		// Namenskonvention in Inkscape: inkscape:label="motion-from-<name>" (Ausgangspfad, clip-path direkt in Inkscape setzen)
+		//                               inkscape:label="motion-to-<name>"   (Zielpfad, wird zur Laufzeit entfernt)
 		// Optionales at-click Attribut auf einem der beiden Elemente setzen.
-		const shoreClipId = idMap.get("shoreClip") ?? "shoreClip";
 		const unhide = (el) => {
 			const s = el.getAttribute("style") ?? "";
 			if (/display\s*:\s*none/.test(s))
@@ -176,9 +175,11 @@ onMounted(() => {
 				);
 		};
 
-		svg.querySelectorAll('[id^="motion-to-"]').forEach((toEl) => {
-			const fromId = toEl.id.replace("motion-to-", "motion-from-");
-			const fromEl = svg.querySelector(`#${CSS.escape(fromId)}`);
+		svg.querySelectorAll('[inkscape\\:label^="motion-to-"]').forEach((toEl) => {
+			const fromLabel = toEl
+				.getAttribute("inkscape:label")
+				.replace("motion-to-", "motion-from-");
+			const fromEl = svg.querySelector(`[inkscape\\:label="${fromLabel}"]`);
 			if (fromEl) {
 				unhide(fromEl);
 				fromEl.setAttribute("from", fromEl.getAttribute("d") ?? "");
@@ -188,13 +189,16 @@ onMounted(() => {
 					fromEl.getAttribute("at-click") ??
 					"1";
 				fromEl.setAttribute("at-click", atClick);
-				if (!fromEl.getAttribute("clip-path"))
-					fromEl.setAttribute("clip-path", `url(#${shoreClipId})`);
 				toEl.remove();
+			} else {
+				console.warn(
+					`[MorphSVG] kein motion-from-Element für Label "${toEl.getAttribute("inkscape:label")}" gefunden`,
+				);
 			}
 		});
 
 		// d_to → from + to + clip-path (Shore-Morphing, Legacy)
+		const shoreClipId = idMap.get("shoreClip") ?? "shoreClip";
 		svg.querySelectorAll("path[d_to]").forEach((el) => {
 			const from = el.getAttribute("d") ?? "";
 			const rawTo = el.getAttribute("d_to") ?? "";
@@ -205,20 +209,6 @@ onMounted(() => {
 			if (!el.getAttribute("clip-path"))
 				el.setAttribute("clip-path", `url(#${shoreClipId})`);
 		});
-
-		// Reihenfolge in g2: body_frame_* vor shore_* (wie build-svg.mjs Schritt 4)
-		const g2 = svg.querySelector(`#${idMap.get("g2") ?? "g2"}`);
-		if (g2) {
-			const firstShore = g2.querySelector(
-				`#${idMap.get("shore_left") ?? "shore_left"}`,
-			);
-			if (firstShore) {
-				for (const origId of ["body_frame_left", "body_frame_right"]) {
-					const frame = g2.querySelector(`#${idMap.get(origId) ?? origId}`);
-					if (frame) g2.insertBefore(frame, firstShore);
-				}
-			}
-		}
 	}
 
 	// ── Morph-Pfade (path[from]) ──────────────────────────────────────────────
