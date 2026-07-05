@@ -27,7 +27,7 @@
  *   node scripts/build-svg.mjs [quelldatei.svg] [zieldatei.md]
  *
  * Standardpfade:
- *   Quelle : assetts/zoomedbody.svg
+ *   Quelle : assetts/venepump.svg
  *   Ziel   : pages/morphsvg.md
  */
 
@@ -38,7 +38,7 @@ import { fileURLToPath } from "node:url";
 const __dir = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dir, "..");
 
-const srcPath = resolve(root, process.argv[2] ?? "assetts/zoomedbody.svg");
+const srcPath = resolve(root, process.argv[2] ?? "assetts/venepump.svg");
 const outPath = resolve(root, process.argv[3] ?? "pages/morphsvg.md");
 
 // ─── Konfiguration ────────────────────────────────────────────────────────────

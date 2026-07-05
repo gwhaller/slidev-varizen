@@ -166,14 +166,15 @@ onMounted(() => {
 		});
 
 		// Morph-Paar-Matching:
-		// - Ausgangspfad hat Attribut morph="enter" oder morph="click-N" oder morph="click-N-M"
-		// - Zielpfad hat dasselbe inkscape:label, aber kein morph-Attribut
+		// - Ausgangspfad hat morph="from" + morph-click="N" oder morph-click="N-M"
+		// - Zielpfad hat morph="to" und dasselbe inkscape:label
 		// - clip-path direkt in Inkscape am Ausgangspfad setzen
 		//
-		// Beispiele (inkscape:label gleich, morph-Attribut am Ausgangspfad):
-		//   morph="enter"      → morpht beim Betreten der Folie
-		//   morph="click-1"    → morpht bei Klick 1
-		//   morph="click-1-3"  → morpht bei Klick 1, rück bei Klick 3
+		// Beispiele (inkscape:label gleich):
+		//   morph="from" morph-click="0"   → morpht beim Betreten der Folie
+		//   morph="from" morph-click="1"   → morpht bei Klick 1
+		//   morph="from" morph-click="1-3" → morpht bei Klick 1, rück bei Klick 3
+		//   morph="to"                     → Zielpfad (wird nach Verarbeitung entfernt)
 		const unhide = (el) => {
 			const s = el.getAttribute("style") ?? "";
 			if (/display\s*:\s*none/.test(s))
@@ -183,17 +184,16 @@ onMounted(() => {
 				);
 		};
 
-		svg.querySelectorAll("path[morph]").forEach((fromEl) => {
-			const morphVal = fromEl.getAttribute("morph") ?? "";
-			if (!morphVal) return;
+		svg.querySelectorAll('path[morph="from"]').forEach((fromEl) => {
+			const morphClick = fromEl.getAttribute("morph-click") ?? "";
 
 			const label = fromEl.getAttribute("inkscape:label");
 			if (!label) return;
 
-			// Zielpfad: gleiches Label, kein morph-Attribut
+			// Zielpfad: gleiches Label mit morph="to"
 			const toEl = [
 				...svg.querySelectorAll(`[inkscape\\:label="${label}"]`),
-			].find((el) => el !== fromEl && !el.hasAttribute("morph"));
+			].find((el) => el !== fromEl && el.getAttribute("morph") === "to");
 			if (!toEl) {
 				console.warn(
 					`[MorphSVG] kein Morph-Ziel mit Label "${label}" gefunden`,
@@ -205,16 +205,17 @@ onMounted(() => {
 			fromEl.setAttribute("from", fromEl.getAttribute("d") ?? "");
 			fromEl.setAttribute("to", toEl.getAttribute("d") ?? "");
 
-			if (morphVal === "enter") {
+			if (morphClick === "0" || morphClick === "") {
 				fromEl.setAttribute("at-click", "0");
 			} else {
-				const cm = morphVal.match(/^click-(\d+)(?:-(\d+))?$/);
+				const cm = morphClick.match(/^(\d+)(?:-(\d+))?$/);
 				if (cm) {
 					fromEl.setAttribute("at-click", cm[1]);
 					if (cm[2]) fromEl.setAttribute("at-click-back", cm[2]);
 				}
 			}
 			fromEl.removeAttribute("morph");
+			fromEl.removeAttribute("morph-click");
 			toEl.remove();
 		});
 
