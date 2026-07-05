@@ -52,27 +52,27 @@
 				sodipodi:insensitive="true"
 			/>
 			<path
-				inkscape:label="motion-from-shore_left"
+				inkscape:label="morph-from-1-shore_left"
 				style="display:inline;fill:#fce4e2;fill-opacity:1;stroke:#1839b4;stroke-width:0.832292;stroke-dasharray:none;stroke-opacity:1"
 				d="m 872.86351,788.82613 21.18542,-0.18928 c 0,0 -0.61755,2.75772 -0.7015,6.84122 -0.11101,6.76104 1.61959,15.87572 1.43531,20.95016 0.0321,8.21177 -1.54248,12.91151 -1.65306,19.9279 -0.0771,2.61925 -0.13181,4.64495 0.0741,7.40088 l -20.50249,0.21636 z"
 				sodipodi:nodetypes="cccccccc"
 				clip-path="url(#shoreClip)"
 			/>
 			<path
-				inkscape:label="motion-to-shore_left"
+				inkscape:label="morph-to-1-shore_left"
 				style="display:none;opacity:1;fill:#fce4e2;fill-opacity:1;stroke:#1839b4;stroke-width:0.832292;stroke-dasharray:none;stroke-opacity:1"
 				d="m 872.86351,788.82613 21.18542,-0.18928 c 0,0 -0.61755,2.75772 -0.7015,6.84122 -0.11101,6.76104 3.83801,6.08405 4.18922,20.03219 -0.50339,16.01451 -4.83187,16.0479 -4.40697,20.84587 -0.0771,2.61925 -0.13181,4.64495 0.0741,7.40088 l -20.50249,0.21636 z"
 				sodipodi:nodetypes="cccccccc"
 			/>
 			<path
-				inkscape:label="motion-from-shore_right"
+				inkscape:label="morph-from-1-shore_right"
 				style="display:inline;fill:#fce4e2;fill-opacity:1;stroke:#1839b4;stroke-width:0.832292;stroke-dasharray:none;stroke-opacity:1"
 				d="m 905.11634,789.43443 c 0,0 0.37459,2.99119 0.3898,5.7174 0.0423,5.1333 -1.02902,12.66855 -1.14737,20.61327 -0.11835,8.86428 1.21309,15.017 0.98655,20.65464 0.0169,4.69103 -0.30263,7.46203 -0.30263,7.46203 l 20.27101,-0.37864 v -53.89358 z"
 				sodipodi:nodetypes="cccccccc"
 				clip-path="url(#shoreClip)"
 			/>
 			<path
-				inkscape:label="motion-to-shore_right"
+				inkscape:label="morph-to-1-shore_right"
 				style="display:none;opacity:1;fill:#fce4e2;fill-opacity:1;stroke:#1839b4;stroke-width:0.832292;stroke-dasharray:none;stroke-opacity:1"
 				d="m 905.11634,789.43443 c 0,0 0.37459,2.99119 0.3898,5.7174 0.0423,5.1333 -4.16541,9.37916 -3.90128,20.38378 0.49363,16.20803 3.967,15.24649 3.74046,20.88413 0.0169,4.69103 -0.30263,7.46203 -0.30263,7.46203 l 20.27101,-0.37864 v -53.89358 z"
 				sodipodi:nodetypes="cccccccc"

@@ -16,11 +16,14 @@ const { clicks, currentSlideNo } = useNav();
 const svgRef = useTemplateRef("svgEl");
 const slideNo = ref(null);
 
+// Morph-Instanzen ohne Klick-Zahl (on-enter), werden von onSlideEnter gefeuert
+const enterMorphs = [];
+
 onSlideEnter(() => {
 	if (slideNo.value === null) {
 		slideNo.value = currentSlideNo.value;
-		console.log("slideNo eingefroren:", slideNo.value);
 	}
+	enterMorphs.forEach(({ m, shapeA, shapeB }) => m.morph(shapeA, shapeB));
 });
 
 // ── Motion-Hilfsfunktionen ───────────────────────────────────────────────────
@@ -162,10 +165,13 @@ onMounted(() => {
 			motionElements.push({ el, initial, clickStates });
 		});
 
-		// motion-from-* / motion-to-* Paar-Morphing
-		// Namenskonvention in Inkscape: inkscape:label="motion-from-<name>" (Ausgangspfad, clip-path direkt in Inkscape setzen)
-		//                               inkscape:label="motion-to-<name>"   (Zielpfad, wird zur Laufzeit entfernt)
-		// Optionales at-click Attribut auf einem der beiden Elemente setzen.
+		// morph-from-* / morph-to-* Paar-Morphing
+		// Namenskonvention in Inkscape (inkscape:label):
+		//   morph-from-<name>      → Ausgangspfad, morpht bei Klick 1 (Default)
+		//   morph-from-<N>-<name>  → Ausgangspfad, morpht bei Klick N
+		//   morph-to-<name>        → Zielpfad, wird zur Laufzeit entfernt
+		//   morph-to-<N>-<name>    → Zielpfad für Klick N
+		// clip-path direkt in Inkscape am Ausgangspfad setzen.
 		const unhide = (el) => {
 			const s = el.getAttribute("style") ?? "";
 			if (/display\s*:\s*none/.test(s))
@@ -175,24 +181,27 @@ onMounted(() => {
 				);
 		};
 
-		svg.querySelectorAll('[inkscape\\:label^="motion-to-"]').forEach((toEl) => {
+		svg.querySelectorAll('[inkscape\\:label^="morph-to-"]').forEach((toEl) => {
 			const fromLabel = toEl
 				.getAttribute("inkscape:label")
-				.replace("motion-to-", "motion-from-");
+				.replace("morph-to-", "morph-from-");
 			const fromEl = svg.querySelector(`[inkscape\\:label="${fromLabel}"]`);
 			if (fromEl) {
 				unhide(fromEl);
 				fromEl.setAttribute("from", fromEl.getAttribute("d") ?? "");
 				fromEl.setAttribute("to", toEl.getAttribute("d") ?? "");
+				// Klick-Priorität: at-click-Attribut > Zahl im Label (morph-from-<N>-name) > 0 (= on enter)
+				const labelClick = fromLabel.match(/^morph-from-(\d+)-/)?.[1] ?? null;
 				const atClick =
 					toEl.getAttribute("at-click") ??
 					fromEl.getAttribute("at-click") ??
-					"1";
+					labelClick ??
+					"0";
 				fromEl.setAttribute("at-click", atClick);
 				toEl.remove();
 			} else {
 				console.warn(
-					`[MorphSVG] kein motion-from-Element für Label "${toEl.getAttribute("inkscape:label")}" gefunden`,
+					`[MorphSVG] kein morph-from-Element für Label "${toEl.getAttribute("inkscape:label")}" gefunden`,
 				);
 			}
 		});
@@ -215,12 +224,15 @@ onMounted(() => {
 	const morphInstances = [...svg.querySelectorAll("path[from]")].map((el) => {
 		const shapeA = el.getAttribute("from");
 		const shapeB = el.getAttribute("to");
+		// at-click="0" = on enter (kein Klick nötig); d_to-Legacy-Pfade ohne Attribut → Default 1
 		const atClick = parseInt(el.getAttribute("at-click") ?? "1");
 		const m = useMorph({ duration: props.duration });
 		el.setAttribute("d", shapeA);
 		m.pathD.value = shapeA;
 		watch(m.pathD, (d) => el.setAttribute("d", d));
-		return { m, shapeA, shapeB, atClick };
+		const instance = { m, shapeA, shapeB, atClick };
+		if (atClick === 0) enterMorphs.push(instance);
+		return instance;
 	});
 
 	// ── Klick-Watcher ─────────────────────────────────────────────────────────
@@ -231,8 +243,14 @@ onMounted(() => {
 
 			const animated = prevSlide === slideNo.value;
 
-			// Shore-Morphing
+			// Morph-Animationen
 			morphInstances.forEach(({ m, shapeA, shapeB, atClick }) => {
+				if (atClick === 0) {
+					// on-enter: onSlideEnter übernimmt die Animation;
+					// bei Direktsprung (kein Slide-Übergang) sofort auf shapeB setzen
+					if (!animated) m.pathD.value = shapeB;
+					return;
+				}
 				if (!animated) {
 					m.pathD.value = n < atClick ? shapeA : shapeB;
 					return;
