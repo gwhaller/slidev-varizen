@@ -43,6 +43,12 @@ function motionToTransform(obj) {
 	if (obj.x != null) t.push(`translateX(${obj.x}px)`);
 	if (obj.y != null) t.push(`translateY(${obj.y}px)`);
 	if (obj.rotate != null) t.push(`rotate(${obj.rotate}deg)`);
+	if (obj.rotateX != null) t.push(`rotateX(${obj.rotateX}deg)`);
+	if (obj.rotateY != null) t.push(`rotateY(${obj.rotateY}deg)`);
+	if (obj.rotateZ != null) t.push(`rotateZ(${obj.rotateZ}deg)`);
+	if (obj.skewX != null) t.push(`skewX(${obj.skewX}deg)`);
+	if (obj.skewY != null) t.push(`skewY(${obj.skewY}deg)`);
+	if (obj.perspective != null) t.push(`perspective(${obj.perspective}px)`);
 	return t.join(" ");
 }
 
@@ -50,16 +56,23 @@ function applyMotionState(el, state, animated = false) {
 	const transform = motionToTransform(state);
 	if (animated) {
 		const d = state?.transition?.duration ?? props.duration;
-		const rawEase = state?.transition?.ease ?? "easeInOut";
+		const delay = state?.transition?.delay ?? 0;
+		const rawEase =
+			state?.transition?.ease ?? state?.transition?.easing ?? "easeInOut";
 		const cssEase = rawEase
 			.replace("easeInOut", "ease-in-out")
 			.replace("easeIn", "ease-in")
 			.replace("easeOut", "ease-out");
-		el.style.transition = `transform ${d}ms ${cssEase}`;
+		const props2 = ["transform", state?.opacity != null ? "opacity" : null]
+			.filter(Boolean)
+			.map((p) => `${p} ${d}ms ${cssEase} ${delay}ms`)
+			.join(", ");
+		el.style.transition = props2;
 	} else {
 		el.style.transition = "";
 	}
 	el.style.transform = transform;
+	if (state?.opacity != null) el.style.opacity = state.opacity;
 }
 
 onMounted(() => {
@@ -149,8 +162,39 @@ onMounted(() => {
 			motionElements.push({ el, initial, clickStates });
 		});
 
-		// d_to → from + to + clip-path (Shore-Morphing)
+		// motion-from-* / motion-to-* Paar-Morphing
+		// Namenskonvention in Inkscape: id="motion-from-<name>" (Ausgangspfad)
+		//                               id="motion-to-<name>"   (Zielpfad, wird entfernt)
+		// Optionales at-click Attribut auf einem der beiden Elemente setzen.
 		const shoreClipId = idMap.get("shoreClip") ?? "shoreClip";
+		const unhide = (el) => {
+			const s = el.getAttribute("style") ?? "";
+			if (/display\s*:\s*none/.test(s))
+				el.setAttribute(
+					"style",
+					s.replace(/display\s*:\s*none\s*;?\s*/g, "").trim(),
+				);
+		};
+
+		svg.querySelectorAll('[id^="motion-to-"]').forEach((toEl) => {
+			const fromId = toEl.id.replace("motion-to-", "motion-from-");
+			const fromEl = svg.querySelector(`#${CSS.escape(fromId)}`);
+			if (fromEl) {
+				unhide(fromEl);
+				fromEl.setAttribute("from", fromEl.getAttribute("d") ?? "");
+				fromEl.setAttribute("to", toEl.getAttribute("d") ?? "");
+				const atClick =
+					toEl.getAttribute("at-click") ??
+					fromEl.getAttribute("at-click") ??
+					"1";
+				fromEl.setAttribute("at-click", atClick);
+				if (!fromEl.getAttribute("clip-path"))
+					fromEl.setAttribute("clip-path", `url(#${shoreClipId})`);
+				toEl.remove();
+			}
+		});
+
+		// d_to → from + to + clip-path (Shore-Morphing, Legacy)
 		svg.querySelectorAll("path[d_to]").forEach((el) => {
 			const from = el.getAttribute("d") ?? "";
 			const rawTo = el.getAttribute("d_to") ?? "";
