@@ -6,9 +6,7 @@ import { useMorph } from "../composables/useMorph";
 const props = defineProps({
 	duration: { type: Number, default: 600 },
 	viewBox: { type: String, default: "0 0 1920 1080" },
-	/** Roher SVG-String (Vite ?raw-Import). Wenn angegeben, übernimmt die
-	 *  Komponente runtime alle Aufgaben von build-svg.mjs:
-	 *  motion-*, d_to → from/to, Clip-Pfade, Element-Reihenfolge. */
+	/** Roher SVG-String (Vite ?raw-Import). */
 	src: { type: String, default: "" },
 });
 
@@ -16,14 +14,14 @@ const { clicks, currentSlideNo } = useNav();
 const svgRef = useTemplateRef("svgEl");
 const slideNo = ref(null);
 
-// Morph-Instanzen ohne Klick-Zahl (on-enter), werden von onSlideEnter gefeuert
-const enterMorphs = [];
+// morph-click="0" oder kein morph-click → on enter; sonst per Klick
+const morphInstances = [];
 
 onSlideEnter(() => {
-	if (slideNo.value === null) {
-		slideNo.value = currentSlideNo.value;
-	}
-	enterMorphs.forEach(({ m, shapeA, shapeB }) => m.morph(shapeA, shapeB));
+	if (slideNo.value === null) slideNo.value = currentSlideNo.value;
+	morphInstances
+		.filter(({ atClick }) => atClick === 0)
+		.forEach(({ m, shapeA, shapeB }) => m.morph(shapeA, shapeB));
 });
 
 // ── Motion-Hilfsfunktionen ───────────────────────────────────────────────────
@@ -130,27 +128,24 @@ onMounted(() => {
 		if (style?.includes("url(")) el.setAttribute("style", rewriteUrl(style));
 	});
 
-	// ── src-Modus: motion-* und d_to verarbeiten ──────────────────────────────
+	// ── src-Modus: motion-* und morph verarbeiten ────────────────────────────
 	const motionElements = [];
 	if (props.src) {
-		// motion-* → CSS-Transformationen (ersetzt v-motion-Direktive)
+		// motion-* → CSS-Transformationen
 		svg.querySelectorAll("[motion-initial]").forEach((el) => {
 			const initial = parseMotionObj(el.getAttribute("motion-initial"));
 			const motionStyle = el.getAttribute("motion-style");
 			const previewTx = el.getAttribute("motion-preview-transform");
 
-			// Inkscape-Vorschau-Transform entfernen
 			if (previewTx && el.getAttribute("transform") === previewTx)
 				el.removeAttribute("transform");
 			el.removeAttribute("motion-preview-transform");
 
-			// motion-style als inline-style übernehmen
 			if (motionStyle) {
 				el.setAttribute("style", motionStyle);
 				el.removeAttribute("motion-style");
 			}
 
-			// motion-click-N einlesen (1–9)
 			const clickStates = {};
 			for (let n = 1; n <= 9; n++) {
 				const val = el.getAttribute(`motion-click-${n}`);
@@ -165,16 +160,8 @@ onMounted(() => {
 			motionElements.push({ el, initial, clickStates });
 		});
 
-		// Morph-Paar-Matching:
-		// - Ausgangspfad hat morph="from" + morph-click="N" oder morph-click="N-M"
-		// - Zielpfad hat morph="to" und dasselbe inkscape:label
-		// - clip-path direkt in Inkscape am Ausgangspfad setzen
-		//
-		// Beispiele (inkscape:label gleich):
-		//   morph="from" morph-click="0"   → morpht beim Betreten der Folie
-		//   morph="from" morph-click="1"   → morpht bei Klick 1
-		//   morph="from" morph-click="1-3" → morpht bei Klick 1, rück bei Klick 3
-		//   morph="to"                     → Zielpfad (wird nach Verarbeitung entfernt)
+		// morph="from" → morpht beim Betreten der Folie
+		// morph="to"   → Zielpfad (gleiches inkscape:label, wird entfernt)
 		const unhide = (el) => {
 			const s = el.getAttribute("style") ?? "";
 			if (/display\s*:\s*none/.test(s))
@@ -185,12 +172,9 @@ onMounted(() => {
 		};
 
 		svg.querySelectorAll('path[morph="from"]').forEach((fromEl) => {
-			const morphClick = fromEl.getAttribute("morph-click") ?? "";
-
 			const label = fromEl.getAttribute("inkscape:label");
 			if (!label) return;
 
-			// Zielpfad: gleiches Label mit morph="to"
 			const toEl = [
 				...svg.querySelectorAll(`[inkscape\\:label="${label}"]`),
 			].find((el) => el !== fromEl && el.getAttribute("morph") === "to");
@@ -205,6 +189,7 @@ onMounted(() => {
 			fromEl.setAttribute("from", fromEl.getAttribute("d") ?? "");
 			fromEl.setAttribute("to", toEl.getAttribute("d") ?? "");
 
+			const morphClick = fromEl.getAttribute("morph-click") ?? "";
 			if (morphClick === "0" || morphClick === "") {
 				fromEl.setAttribute("at-click", "0");
 			} else {
@@ -218,27 +203,13 @@ onMounted(() => {
 			fromEl.removeAttribute("morph-click");
 			toEl.remove();
 		});
-
-		// d_to → from + to + clip-path (Shore-Morphing, Legacy)
-		const shoreClipId = idMap.get("shoreClip") ?? "shoreClip";
-		svg.querySelectorAll("path[d_to]").forEach((el) => {
-			const from = el.getAttribute("d") ?? "";
-			const rawTo = el.getAttribute("d_to") ?? "";
-			const to = rawTo.replace(/&#10;/g, " ").replace(/\s+/g, " ").trim();
-			el.setAttribute("from", from);
-			el.setAttribute("to", to);
-			el.removeAttribute("d_to");
-			if (!el.getAttribute("clip-path"))
-				el.setAttribute("clip-path", `url(#${shoreClipId})`);
-		});
 	}
 
 	// ── Morph-Pfade (path[from]) ──────────────────────────────────────────────
-	const morphInstances = [...svg.querySelectorAll("path[from]")].map((el) => {
+	svg.querySelectorAll("path[from]").forEach((el) => {
 		const shapeA = el.getAttribute("from");
 		const shapeB = el.getAttribute("to");
-		// at-click="0" = on enter; Legacy-Pfade ohne Attribut → Default 1
-		const atClick = parseInt(el.getAttribute("at-click") ?? "1");
+		const atClick = parseInt(el.getAttribute("at-click") ?? "0");
 		const atClickBack = el.hasAttribute("at-click-back")
 			? parseInt(el.getAttribute("at-click-back"))
 			: null;
@@ -246,9 +217,7 @@ onMounted(() => {
 		el.setAttribute("d", shapeA);
 		m.pathD.value = shapeA;
 		watch(m.pathD, (d) => el.setAttribute("d", d));
-		const instance = { m, shapeA, shapeB, atClick, atClickBack };
-		if (atClick === 0) enterMorphs.push(instance);
-		return instance;
+		morphInstances.push({ m, shapeA, shapeB, atClick, atClickBack });
 	});
 
 	// ── Klick-Watcher ─────────────────────────────────────────────────────────
@@ -256,28 +225,22 @@ onMounted(() => {
 		() => [currentSlideNo.value, clicks.value],
 		([slide, n], [prevSlide, prev]) => {
 			if (slideNo.value === null || slide !== slideNo.value) return;
-
 			const animated = prevSlide === slideNo.value;
 
-			// Morph-Animationen
 			morphInstances.forEach(({ m, shapeA, shapeB, atClick, atClickBack }) => {
 				if (atClick === 0) {
-					// on-enter: onSlideEnter übernimmt die Animation;
-					// bei Direktsprung sofort auf shapeB setzen
+					// on-enter: bei Direktsprung sofort auf shapeB setzen
 					if (!animated) m.pathD.value = shapeB;
 					return;
 				}
 				if (!animated) {
-					// Sofortzustand bei Click n berechnen
 					let state = n >= atClick ? shapeB : shapeA;
 					if (atClickBack !== null && n >= atClickBack) state = shapeA;
 					m.pathD.value = state;
 					return;
 				}
-				// Vorwärts-Morph bei atClick
 				if (n === atClick && prev === atClick - 1) m.morph(shapeA, shapeB);
 				if (n === atClick - 1 && prev === atClick) m.morph(shapeB, shapeA);
-				// Rückwärts-Morph bei atClickBack (morph-click-N-M)
 				if (atClickBack !== null) {
 					if (n === atClickBack && prev === atClickBack - 1)
 						m.morph(shapeB, shapeA);
@@ -286,7 +249,6 @@ onMounted(() => {
 				}
 			});
 
-			// CSS-Transform-Animationen (motion-Elemente)
 			motionElements.forEach(({ el, initial, clickStates }) => {
 				let target = initial;
 				for (let c = 1; c <= n; c++) {
