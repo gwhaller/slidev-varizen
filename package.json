@@ -5,6 +5,7 @@
 	"scripts": {
 		"build": "slidev build",
 		"build:svg": "node scripts/build-svg.mjs",
+		"sync:shores": "node scripts/sync-shores.mjs",
 		"dev": "slidev --open",
 		"export": "slidev export"
 	},
