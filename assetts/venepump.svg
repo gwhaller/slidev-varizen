@@ -138,7 +138,7 @@
 		inkscape:label="inner-shore-left"
 		morph="to"
 		id="inner-line-left-to"
-		style="display:none"
+		style="display:none;fill:none;stroke:#1839b4;stroke-width:0.832292;stroke-linecap:round"
 		d="M 894.04893,788.63685 c 0,0 -0.61755,2.75772 -0.7015,6.84122 -0.11101,6.76104 3.83801,6.08405 4.18922,20.03219 -0.50339,16.01451 -4.83187,16.0479 -4.40697,20.84587 -0.0771,2.61925 -0.13181,4.64495 0.0741,7.40088"
 	/>
 	<path
@@ -154,7 +154,7 @@
 		inkscape:label="inner-shore-right"
 		morph="to"
 		id="inner-line-right-to"
-		style="display:none"
+		style="display:none;fill:none;stroke:#1839b4;stroke-width:0.832292;stroke-linecap:round"
 		d="M 904.97381,788.93557 c 0,0 0.51712,3.49005 0.53233,6.21626 0.0423,5.1333 -4.16541,9.37916 -3.90128,20.38378 0.49363,16.20803 3.967,15.24649 3.74046,20.88413 0.0169,4.69103 -0.30263,7.46203 -0.30263,7.46203"
 	/>
 	<!-- ── Klappen (4 Dreiecke) ──────────────────────────────────────────────── -->
