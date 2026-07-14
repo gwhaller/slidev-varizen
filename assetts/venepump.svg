@@ -19,15 +19,48 @@
 	width="1920"
 	height="1080"
 	viewBox="850 790.0625 94 52.875"
+	version="1.1"
+	id="svg2"
+	sodipodi:docname="venepump.svg"
+	inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
 	xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+	xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	xmlns="http://www.w3.org/2000/svg"
+	xmlns:svg="http://www.w3.org/2000/svg"
 >
-	<defs>
+	<sodipodi:namedview
+		id="namedview2"
+		pagecolor="#505050"
+		bordercolor="#eeeeee"
+		borderopacity="1"
+		inkscape:showpageshadow="0"
+		inkscape:pageopacity="0"
+		inkscape:pagecheckerboard="0"
+		inkscape:deskcolor="#505050"
+		inkscape:zoom="0.68697917"
+		inkscape:cx="960"
+		inkscape:cy="465.07961"
+		inkscape:window-width="1920"
+		inkscape:window-height="994"
+		inkscape:window-x="0"
+		inkscape:window-y="0"
+		inkscape:window-maximized="1"
+		inkscape:current-layer="svg2"
+	/>
+	<defs id="defs2">
 		<!-- Gradient für Sehnen-Glanz — einmal definiert, von beiden Muskeln genutzt -->
 		<linearGradient id="muscleGrad">
-			<stop style="stop-color:#e2e2e2;stop-opacity:0.998" offset="0" />
-			<stop style="stop-color:#ffffff;stop-opacity:0" offset="0.877" />
+			<stop
+				style="stop-color:#e2e2e2;stop-opacity:0.998"
+				offset="0"
+				id="stop1"
+			/>
+			<stop
+				style="stop-color:#ffffff;stop-opacity:0"
+				offset="0.877"
+				id="stop2"
+			/>
 		</linearGradient>
 		<linearGradient
 			xlink:href="#muscleGrad"
@@ -38,7 +71,6 @@
 			x2="105.75185"
 			y2="184.43259"
 		/>
-
 		<!--
       Muskel-Symbol: Pfaddaten einmal definiert statt für linken + rechten
       Muskel zu duplizieren (Original: 6 Pfade × 2 = 12 Elemente → jetzt 6).
@@ -79,7 +111,7 @@
 		</symbol>
 		<!-- Clip auf den sichtbaren Bildbereich (viewBox: 850 790.0625 94×52.875) -->
 		<clipPath id="veneCl">
-			<rect x="850" y="790.0625" width="94" height="52.875" />
+			<rect x="850" y="790.0625" width="94" height="52.875" id="rect2" />
 		</clipPath>
 	</defs>
 	<!-- ── Blut / Lymphe im Venenkanal (unterste Ebene) ───────────────────── -->
@@ -94,6 +126,44 @@
     (shore-inner/pre/post). Das statische d dient nur als Inkscape-Vorschau;
     nach Änderung von inner-line-* in Inkscape: pnpm run sync:shores.
 	-->
+	<g id="valves" transform="translate(6.2500001e-6)">
+		<path
+			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.354757;stroke-linejoin:round"
+			d="m 899.10085,794.44949 c -2.40108,4.56719 -5.08712,4.43085 -5.49412,4.40984 -0.40701,-0.021 -0.27548,-1.43331 -0.052,-1.68954 0.22348,-0.25623 1.97032,0.48052 5.54612,-2.7203 z"
+			id="valve-left-top"
+			motion-initial="{&quot;rotate&quot;: 0}"
+			motion-click-2="{&quot;rotate&quot;: -30, &quot;transition&quot;: {&quot;duration&quot;: 400, &quot;ease&quot;: &quot;easeInOut&quot;}}"
+			motion-style="transform-box:fill-box;transform-origin:left bottom"
+			sodipodi:nodetypes="czzc"
+		/>
+		<path
+			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.356973;stroke-linejoin:round"
+			d="m 905.09801,797.18487 c -0.31739,-0.22849 -3.29198,-0.55426 -5.77154,-2.74413 2.43239,4.56491 5.36967,4.43706 5.7189,4.43282 0.69723,-0.008 0.37003,-1.4602 0.0526,-1.68869 z"
+			id="valve-right-top"
+			motion-initial="{&quot;rotate&quot;: 0}"
+			motion-click-2="{&quot;rotate&quot;: 30, &quot;transition&quot;: {&quot;duration&quot;: 400, &quot;ease&quot;: &quot;easeInOut&quot;}}"
+			motion-style="transform-box:fill-box;transform-origin:right bottom"
+			sodipodi:nodetypes="zczz"
+		/>
+		<path
+			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.354757;stroke-linejoin:round"
+			d="m 893.26761,837.84106 c 0.3655,-0.18445 3.24962,-0.55453 5.69726,-2.7455 -2.40108,4.56719 -5.26349,4.43085 -5.6453,4.43504 -0.38181,0.004 -0.41746,-1.50509 -0.052,-1.68954 z"
+			id="valve-left-bottom"
+			motion-initial="{&quot;rotate&quot;: 0}"
+			motion-click-2="{&quot;rotate&quot;: -30, &quot;transition&quot;: {&quot;duration&quot;: 400, &quot;ease&quot;: &quot;easeInOut&quot;}}"
+			motion-style="transform-box:fill-box;transform-origin:left bottom"
+			sodipodi:nodetypes="zczz"
+		/>
+		<path
+			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.356973;stroke-linejoin:round"
+			d="m 904.96203,837.83094 c -0.32355,-0.16691 -3.29198,-0.55426 -5.77154,-2.74413 2.43239,4.56491 5.30539,4.43668 5.7189,4.43282 0.41351,-0.004 0.37619,-1.52178 0.0526,-1.68869 z"
+			id="valve-right-bottom"
+			motion-initial="{&quot;rotate&quot;: 0}"
+			motion-click-2="{&quot;rotate&quot;: 30, &quot;transition&quot;: {&quot;duration&quot;: 400, &quot;ease&quot;: &quot;easeInOut&quot;}}"
+			motion-style="transform-box:fill-box;transform-origin:right bottom"
+			sodipodi:nodetypes="zczz"
+		/>
+	</g>
 	<path
 		id="fill-shore-left"
 		clip-path="url(#veneCl)"
@@ -168,34 +238,6 @@
 		d="M 904.97381,788.93557 c 0,0 0.51712,3.49005 0.53233,6.21626 0.0423,5.1333 -4.16541,9.37916 -3.90128,20.38378 0.49363,16.20803 3.967,15.24649 3.74046,20.88413 0.0169,4.69103 -0.30263,7.46203 -0.30263,7.46203"
 	/>
 	<!-- ── Klappen (4 Dreiecke) ──────────────────────────────────────────────── -->
-	<g id="valves">
-		<path
-			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.354757;stroke-linejoin:round"
-			d="m 893.40359,797.19499 c 0,0 3.24962,-0.55453 5.69726,-2.7455 -2.40108,4.56719 -5.6453,4.43504 -5.6453,4.43504 z"
-			id="valve-left-top"
-			motion-initial='{"rotate": 0}'
-			motion-click-2='{"rotate": -20, "transition": {"duration": 400, "ease": "easeInOut"}}'
-			motion-style="transform-box:fill-box;transform-origin:left bottom"
-		/>
-		<path
-			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.356973;stroke-linejoin:round"
-			d="m 905.09801,797.18487 c 0,0 -3.29198,-0.55426 -5.77154,-2.74413 2.43239,4.56491 5.7189,4.43282 5.7189,4.43282 z"
-			id="valve-right-top"
-      motion-initial='{"rotate": 0}'
-			motion-click-2='{"rotate": 20, "transition": {"duration": 400, "ease": "easeInOut"}}'
-			motion-style="transform-box:fill-box;transform-origin:right bottom"
-		/>
-		<path
-			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.354757;stroke-linejoin:round"
-			d="m 893.26761,837.84106 c 0,0 3.24962,-0.55453 5.69726,-2.7455 -2.40108,4.56719 -5.6453,4.43504 -5.6453,4.43504 z"
-			id="valve-left-bottom"
-		/>
-		<path
-			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.356973;stroke-linejoin:round"
-			d="m 904.96203,837.83094 c 0,0 -3.29198,-0.55426 -5.77154,-2.74413 2.43239,4.56491 5.7189,4.43282 5.7189,4.43282 z"
-			id="valve-right-bottom"
-		/>
-	</g>
 	<!-- ── Muskeln ── beide referenzieren dasselbe <symbol> ──────────────────────
     Original: 6 Pfade × 2 = 12 Elemente.  Hier: 6 Pfade in <symbol>, 2× <use>.
     Äußeres <g>: Positionierung (gleiche Transforms wie Original)
@@ -208,8 +250,8 @@
 		<g
 			transform="matrix(1.7,0,0,1,-76,0)"
 			motion-preview-transform="matrix(1.7,0,0,1,-76,0)"
-			motion-initial='{"scaleX": 1}'
-			motion-click-1='{"scaleX": 1.7, "transition": {"duration": 700, "ease": "easeInOut"}}'
+			motion-initial="{&quot;scaleX&quot;: 1}"
+			motion-click-1="{&quot;scaleX&quot;: 1.7, &quot;transition&quot;: {&quot;duration&quot;: 700, &quot;ease&quot;: &quot;easeInOut&quot;}}"
 			motion-style="transform-box: fill-box; transform-origin: center"
 			id="g15"
 		>
@@ -223,8 +265,8 @@
 		<g
 			transform="matrix(1.7,0,0,1,-76,0)"
 			motion-preview-transform="matrix(1.7,0,0,1,-76,0)"
-			motion-initial='{"scaleX": 1}'
-			motion-click-1='{"scaleX": 1.7, "transition": {"duration": 700, "ease": "easeInOut"}}'
+			motion-initial="{&quot;scaleX&quot;: 1}"
+			motion-click-1="{&quot;scaleX&quot;: 1.7, &quot;transition&quot;: {&quot;duration&quot;: 700, &quot;ease&quot;: &quot;easeInOut&quot;}}"
 			motion-style="transform-box: fill-box; transform-origin: center"
 			id="g16"
 		>

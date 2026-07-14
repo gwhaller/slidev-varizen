@@ -631,7 +631,7 @@ Double-click on the draggable elements to edit their positions.
 </v-drag>
 ```
 
-<v-drag pos="663,206,261,_,-15">
+<v-drag pos="422,292,267,_,-15">
   <div text-center text-3xl border border-main rounded>
     Double-click me!
   </div>
@@ -645,7 +645,7 @@ Double-click on the draggable elements to edit their positions.
 <v-drag-arrow two-way />
 ```
 
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
+<v-drag-arrow pos="79,427,263,-235" two-way op70 />
 
 ---
 
