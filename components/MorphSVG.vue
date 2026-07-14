@@ -142,7 +142,12 @@ onMounted(() => {
 			el.removeAttribute("motion-preview-transform");
 
 			if (motionStyle) {
-				el.setAttribute("style", motionStyle);
+				// Bestehende Style-Properties erhalten, nur motion-style-Properties mergen
+				motionStyle.split(";").forEach((decl) => {
+					const [prop, ...rest] = decl.split(":");
+					if (prop?.trim())
+						el.style.setProperty(prop.trim(), rest.join(":").trim());
+				});
 				el.removeAttribute("motion-style");
 			}
 

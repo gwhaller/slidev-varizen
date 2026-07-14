@@ -172,22 +172,28 @@
 		<path
 			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.354757;stroke-linejoin:round"
 			d="m 893.40359,797.19499 c 0,0 3.24962,-0.55453 5.69726,-2.7455 -2.40108,4.56719 -5.6453,4.43504 -5.6453,4.43504 z"
-			id="path12"
+			id="valve-left-top"
+			motion-initial='{"rotate": 0}'
+			motion-click-2='{"rotate": -20, "transition": {"duration": 400, "ease": "easeInOut"}}'
+			motion-style="transform-box:fill-box;transform-origin:left bottom"
 		/>
 		<path
 			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.356973;stroke-linejoin:round"
 			d="m 905.09801,797.18487 c 0,0 -3.29198,-0.55426 -5.77154,-2.74413 2.43239,4.56491 5.7189,4.43282 5.7189,4.43282 z"
-			id="path13"
+			id="valve-right-top"
+      motion-initial='{"rotate": 0}'
+			motion-click-2='{"rotate": 20, "transition": {"duration": 400, "ease": "easeInOut"}}'
+			motion-style="transform-box:fill-box;transform-origin:right bottom"
 		/>
 		<path
 			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.354757;stroke-linejoin:round"
 			d="m 893.26761,837.84106 c 0,0 3.24962,-0.55453 5.69726,-2.7455 -2.40108,4.56719 -5.6453,4.43504 -5.6453,4.43504 z"
-			id="path14"
+			id="valve-left-bottom"
 		/>
 		<path
 			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.356973;stroke-linejoin:round"
 			d="m 904.96203,837.83094 c 0,0 -3.29198,-0.55426 -5.77154,-2.74413 2.43239,4.56491 5.7189,4.43282 5.7189,4.43282 z"
-			id="path15"
+			id="valve-right-bottom"
 		/>
 	</g>
 	<!-- ── Muskeln ── beide referenzieren dasselbe <symbol> ──────────────────────
