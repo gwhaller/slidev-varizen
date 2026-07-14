@@ -2,12 +2,17 @@
 <!--
   venepump.svg — Venenpumpen-Animation
   Ebenen (unten → oben):
-    water           – blaue Kanalflüssigkeit (statisch)
-    fill-shore-*    – hellrote Gewebeflächen links/rechts (statisch, kein Stroke)
-    outer-line-*    – rote Außenkanten (statisch, gleiche Beziers wie fill-shore-Außenkante)
-    inner-line-*    – blaue Venenwände, morph from/to bei Klick 1
-    valves          – 4 blaue Klappendreiecke (statisch)
-    muscle-*        – Muskeln, scaleX-Animation bei Klick 1
+    water               – blaue Kanalflüssigkeit (statisch)
+    fill-shore-*        – hellrote Gewebeflächen links/rechts (statisch, kein Stroke)
+                          d = shore-pre + inner-line-*-Kurve + shore-post
+                          nach Änderung der inner-line-* in Inkscape: pnpm run sync:shores
+    outer-line-*        – rosa Außenkanten (statisch, gleiche Beziers wie fill-shore-Außenkante)
+    inner-line-*        – blaue Venenwände, morph="from" morph-click="1"
+                          inkscape:label="inner-shore-*"
+    inner-line-*-to     – Zielform für Morph (morph="to", display:none)
+                          trägt volle Strich-Formatierung für korrektes Inkscape-Preview
+    valves              – 4 blaue Klappendreiecke (statisch)
+    muscle-left/-right  – Muskeln (je 1× <use> auf #muscle-shape), scaleX-Animation bei Klick 1
   veneCl clipPath hält alle Elemente im sichtbaren Bildbereich (viewBox).
 -->
 <svg
@@ -123,7 +128,12 @@
 		d="M 928.28184,788.62292 c 1.10182,13.57536 1.57208,23.63106 0.35146,37.22185 -0.57665,8.21167 -1.68346,11.15450 -3.48189,19.15122"
 	/>
 	<!-- ── Innere Venenwände (morphbar bei Klick 1) ───────────────────────────
-    "from"-Koordinaten = innere Kante von fill-shore-left/-right.
+    inner-line-left / inner-line-right  (morph="from", morph-click="1")
+      Koordinaten = innere Kante von fill-shore-left/-right.
+      inkscape:label="inner-shore-*" für Inkscape-Ebenen/XML-Editor.
+    inner-line-*-to  (morph="to", display:none)
+      Vollständige Strich-Formatierung identisch zu from-Pfad →
+      korrekte Vorschau in Inkscape, wenn Pfad eingeblendet wird.
 	-->
 	<path
 		inkscape:label="inner-shore-left"
