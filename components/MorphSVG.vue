@@ -41,8 +41,10 @@ function motionToTransform(obj) {
 	if (obj.scaleX != null) t.push(`scaleX(${obj.scaleX})`);
 	if (obj.scaleY != null) t.push(`scaleY(${obj.scaleY})`);
 	if (obj.scale != null) t.push(`scale(${obj.scale})`);
-	if (obj.x != null) t.push(`translateX(${obj.x}px)`);
-	if (obj.y != null) t.push(`translateY(${obj.y}px)`);
+	if (obj.x != null)
+		t.push(`translateX(${typeof obj.x === "string" ? obj.x : obj.x + "px"})`);
+	if (obj.y != null)
+		t.push(`translateY(${typeof obj.y === "string" ? obj.y : obj.y + "px"})`);
 	if (obj.rotate != null) t.push(`rotate(${obj.rotate}deg)`);
 	if (obj.rotateX != null) t.push(`rotateX(${obj.rotateX}deg)`);
 	if (obj.rotateY != null) t.push(`rotateY(${obj.rotateY}deg)`);
@@ -255,9 +257,9 @@ onMounted(() => {
 			});
 
 			motionElements.forEach(({ el, initial, clickStates }) => {
-				let target = initial;
+				let target = { ...initial };
 				for (let c = 1; c <= n; c++) {
-					if (clickStates[c]) target = clickStates[c];
+					if (clickStates[c]) Object.assign(target, clickStates[c]);
 				}
 				applyMotionState(el, target, animated);
 			});
