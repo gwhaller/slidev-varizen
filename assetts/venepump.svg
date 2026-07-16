@@ -134,7 +134,7 @@
        transform="translate(0.07127236,0.14253222)"
        motion-initial='{"opacity": 0, "y": 0}'
        motion-click-3='{"opacity": 1, "transition": {"duration": 300, "ease": "easeInOut"}}'
-       motion-click-4='{"y": "-100%", "transition": {"duration": 600, "ease": "easeInOut"}}'
+       motion-click-4='{"y": "-90%", "transition": {"duration": 600, "ease": "easeInOut"}}'
        motion-style="transform-box:fill-box" />
   </g>
   <!-- ── Shore-Flächen links und rechts ──────────────────────────────────────
@@ -255,8 +255,8 @@
     <g
        transform="matrix(1.7,0,0,1,-76,0)"
        motion-preview-transform="matrix(1.7,0,0,1,-76,0)"
-       motion-initial="{'scaleX': 1}"
-       motion-click-1="{'scaleX': 1.7, 'transition': {'duration': 700, 'ease': 'easeInOut'}}"
+       motion-initial='{"scaleX": 1}'
+       motion-click-1='{"scaleX": 1.7, "transition": {"duration": 700, "ease": "easeInOut"}}'
        motion-style="transform-box: fill-box; transform-origin: center"
        id="g15">
       <use
@@ -270,8 +270,8 @@
     <g
        transform="matrix(1.7,0,0,1,-76,0)"
        motion-preview-transform="matrix(1.7,0,0,1,-76,0)"
-       motion-initial="{'scaleX': 1}"
-       motion-click-1="{'scaleX': 1.7, 'transition': {'duration': 700, 'ease': 'easeInOut'}}"
+       motion-initial='{"scaleX": 1}'
+       motion-click-1='{"scaleX": 1.7, "transition": {"duration": 700, "ease": "easeInOut"}}'
        motion-style="transform-box: fill-box; transform-origin: center"
        id="g16">
       <use
