@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <!--
   venepump.svg — Venenpumpen-Animation
   Ebenen (unten → oben):
@@ -15,199 +15,213 @@
     muscle-left/-right  – Muskeln (je 1× <use> auf #muscle-shape), scaleX-Animation bei Klick 1
   veneCl clipPath hält alle Elemente im sichtbaren Bildbereich (viewBox).
 -->
-
 <svg
-  width="1920"
-  height="1080"
-  viewBox="850 790.0625 94 52.875"
-  version="1.1"
-  id="svg2"
-  sodipodi:docname="venepump.svg"
-  inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
-  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
-  xmlns="http://www.w3.org/2000/svg"
-  xmlns:svg="http://www.w3.org/2000/svg"
+	width="1920"
+	height="1080"
+	viewBox="850 790.0625 94 52.875"
+	version="1.1"
+	id="svg2"
+	sodipodi:docname="venepump.svg"
+	inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+	xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+	xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:svg="http://www.w3.org/2000/svg"
 >
-  <sodipodi:namedview
-    id="namedview2"
-    pagecolor="#505050"
-    bordercolor="#eeeeee"
-    borderopacity="1"
-    inkscape:showpageshadow="0"
-    inkscape:pageopacity="0"
-    inkscape:pagecheckerboard="0"
-    inkscape:deskcolor="#505050"
-    inkscape:zoom="0.68697917"
-    inkscape:cx="961.45564"
-    inkscape:cy="465.0796"
-    inkscape:window-width="1920"
-    inkscape:window-height="994"
-    inkscape:window-x="0"
-    inkscape:window-y="0"
-    inkscape:window-maximized="1"
-    inkscape:current-layer="svg2"
-  />
-  <defs
-    id="defs2">
-    <!-- Gradient für Sehnen-Glanz — einmal definiert, von beiden Muskeln genutzt -->
-    <linearGradient
-      id="muscleGrad">
-      <stop
-        style="stop-color:#e2e2e2;stop-opacity:0.998"
-        offset="0"
-        id="stop1"
-      />
-      <stop
-        style="stop-color:#ffffff;stop-opacity:0"
-        offset="0.877"
-        id="stop2"
-      />
-    </linearGradient>
-    <linearGradient
-       xlink:href="#muscleGrad"
-       id="tendonGrad"
-       gradientUnits="userSpaceOnUse"
-       x1="105.75185"
-       y1="197.12289"
-       x2="105.75185"
-       y2="184.43259" />
-    <!--
+	<sodipodi:namedview
+		id="namedview2"
+		pagecolor="#505050"
+		bordercolor="#eeeeee"
+		borderopacity="1"
+		inkscape:showpageshadow="0"
+		inkscape:pageopacity="0"
+		inkscape:pagecheckerboard="0"
+		inkscape:deskcolor="#505050"
+		inkscape:zoom="0.68697917"
+		inkscape:cx="960"
+		inkscape:cy="463.62396"
+		inkscape:window-width="1920"
+		inkscape:window-height="994"
+		inkscape:window-x="0"
+		inkscape:window-y="0"
+		inkscape:window-maximized="1"
+		inkscape:current-layer="svg2"
+	/>
+	<defs id="defs2">
+		<!-- Gradient für Sehnen-Glanz — einmal definiert, von beiden Muskeln genutzt -->
+		<linearGradient id="muscleGrad">
+			<stop
+				style="stop-color:#e2e2e2;stop-opacity:0.998"
+				offset="0"
+				id="stop1"
+			/>
+			<stop
+				style="stop-color:#ffffff;stop-opacity:0"
+				offset="0.877"
+				id="stop2"
+			/>
+		</linearGradient>
+		<linearGradient
+			xlink:href="#muscleGrad"
+			id="tendonGrad"
+			gradientUnits="userSpaceOnUse"
+			x1="105.75185"
+			y1="197.12289"
+			x2="105.75185"
+			y2="184.43259"
+		/>
+		<!--
       Muskel-Symbol: Pfaddaten einmal definiert statt für linken + rechten
       Muskel zu duplizieren (Original: 6 Pfade × 2 = 12 Elemente → jetzt 6).
       Koordinaten im Original-Muskel-Raum (~46–200), Skalierung erfolgt
       per transform auf den referenzierenden <g>-Elementen.
       -->
-    <symbol
-       id="muscle-shape"
-       overflow="visible">
-      <path
-         style="fill:#f99775;fill-rule:evenodd;stroke:#f99775;stroke-width:0.238125;stroke-linejoin:round"
-         d="m 108.52144,46.284889 c 0,0 14.89006,38.198661 14.6483,73.408661 -0.24175,35.21 -10.94925,69.46035 -10.94925,69.46035 l -8.26917,-0.26252 c 0,0 -10.283995,-33.4462 -11.155789,-69.21407 C 91.923738,83.909443 108.52144,46.284889 108.52144,46.284889 Z"
-         id="path2" />
-      <path
-         style="fill:#fcb097;fill-rule:evenodd;stroke:#fcb097;stroke-width:0.238125;stroke-linejoin:round"
-         d="m 109.04647,54.870229 c 5.92197,24.817595 4.26674,71.475121 4.02207,99.601231 1.91457,-14.76373 1.80313,-46.19535 3.01148,-46.58057 0.81458,0.40232 1.44775,12.73563 0.39378,28.61396 2.35871,-19.82349 5.48472,-43.785727 -2.83335,-79.928283 4.02006,25.679348 4.19086,43.654693 2.17707,43.176404 -0.56997,0.703019 -1.92998,-26.648141 -6.77105,-44.882742 z"
-         id="path3" />
-      <path
-         style="fill:#fcb097;fill-rule:evenodd;stroke:#fcb097;stroke-width:0.238125;stroke-linejoin:round"
-         d="m 106.56484,145.19022 c 5.94128,-27.99615 6.67795,-80.336217 -1.19356,-87.826113 5.51667,5.898287 2.60266,63.319583 1.19356,87.826113 z"
-         id="path4" />
-      <path
-         style="fill:#fcb097;fill-rule:evenodd;stroke:#fcb097;stroke-width:0.238125;stroke-linejoin:round"
-         d="m 104.30587,181.80834 c -1.36576,-35.06496 -3.50124,-59.64989 -2.36475,-60.60509 1.00523,0.75113 1.28042,6.85901 1.856,16.98785 0.96934,-15.99124 1.349,-33.1284 1.3886,-43.294629 0.0396,-10.166233 0.8488,-19.834375 -1.12701,-43.877344 -7.751105,29.378507 -6.478004,65.643043 -6.354615,72.228793 0.123389,6.58575 0.108122,24.077 6.601775,58.56042 z"
-         id="path5" />
-      <path
-         style="fill:#d07a5a;fill-rule:evenodd;stroke:#d07a5a;stroke-width:0.231448;stroke-linejoin:round"
-         d="M 108.25905,43.467353 C 89.678029,66.790317 90.950225,111.77194 90.948904,120.18306 c -0.0013,8.41112 0.322436,45.05901 11.604316,71.112 1.19736,4.66131 1.92209,6.27729 1.92209,6.27729 l 6.60147,-0.13 c 0,0 0.71987,-1.98976 1.98466,-6.38791 12.15075,-27.09381 12.4167,-62.27578 12.61262,-71.01243 0.19592,-8.73666 0.0935,-53.498579 -17.41501,-76.574657 z m -1.05034,12.397385 c 14.2321,13.603881 14.53143,47.802722 13.99311,64.830682 -0.3652,11.55195 -2.65004,27.42603 -4.89195,40.08291 0,0 1.64647,-12.51111 -0.22821,-33.01638 -2.00598,26.10826 -1.06752,44.71071 -3.0725,44.39613 -0.82342,-1.05842 -0.47796,-10.47382 -1.65384,-33.61066 -2.54603,17.19409 -0.92416,28.57693 -2.42162,33.21362 -1.23488,-2.55369 -1.89692,-32.43669 -2.82971,-32.5938 -1.32666,-0.40506 -3.19981,20.94709 -3.19981,20.94709 -1.40047,-2.81796 -0.7219,-1.42051 -3.101853,-30.74077 -0.935822,22.12818 3.647883,35.97882 3.097663,40.42901 -1.60051,-1.25252 -8.44011,-26.94916 -8.217833,-49.85107 0.222278,-22.901905 0.986901,-30.958398 2.576517,-38.0574 0.539333,5.918074 1.369263,17.991233 2.806316,37.18972 -0.138354,-26.795194 1.37405,-47.785167 2.68005,-51.193969 1.56857,-0.185525 2.59825,5.450943 3.97194,12.407372 0.45469,-10.77159 -0.49292,-21.891055 0.49173,-24.432485 z"
-         id="path6" />
-      <path
-         style="fill:url(#tendonGrad);fill-rule:evenodd;stroke:none"
-         d="m 113.71117,189.86808 c 0,0 -2.26673,7.11766 -2.11275,9.69548 -2.58399,-0.0209 -4.06296,-0.10765 -7.05553,-0.10255 -0.23203,-2.08446 -2.91667,-9.66388 -2.91667,-9.66388 4.05031,-0.35271 12.14105,0.1426 12.08495,0.0709 z"
-         id="path7" />
-    </symbol>
-    <!-- Clip auf den sichtbaren Bildbereich (viewBox: 850 790.0625 94×52.875) -->
-    <clipPath
-       id="veneCl">
-      <rect
-         x="850"
-         y="790.0625"
-         width="94"
-         height="52.875"
-         id="rect2" />
-    </clipPath>
-  </defs>
-  <!-- ── Blut / Lymphe im Venenkanal (unterste Ebene) ─────────────────── -->
-  <path
-     id="water"
-     clip-path="url(#veneCl)"
-     style="fill:#b4e0f7;stroke:none"
-     d="m 910.26963,787.41711 -0.17161,59.5966 -22.4127,0.0778 0.23996,-59.34343 z" />
-  <!-- ── stroke: erscheint bei Klick 3, wandert bei Klick 4 nach oben ── -->
-  <g clip-path="url(#veneCl)">
-    <path
-       id="stroke"
-       style="fill:#008080;stroke-width:0.0489583"
-       d="m 885.77558,798.18683 8.26687,-3e-5 5.2737,-3.63458 5.70128,3.56331 8.90826,0.2138 -0.42759,41.33434 -8.12433,-0.4276 -6.48522,-4.27596 -5.98635,4.06216 -6.91282,-0.35633 z"
-       sodipodi:nodetypes="ccccccccccc"
-       transform="translate(0.07127236,0.14253222)"
-       motion-initial='{"opacity": 0, "y": 0}'
-       motion-click-3='{"opacity": 1, "transition": {"duration": 300, "ease": "easeInOut"}}'
-       motion-click-4='{"y": "-90%", "transition": {"duration": 600, "ease": "easeInOut"}}'
-       motion-style="transform-box:fill-box" />
-  </g>
-  <!-- ── Shore-Flächen links und rechts ──────────────────────────────────────
+		<symbol id="muscle-shape" overflow="visible">
+			<path
+				style="fill:#f99775;fill-rule:evenodd;stroke:#f99775;stroke-width:0.238125;stroke-linejoin:round"
+				d="m 108.52144,46.284889 c 0,0 14.89006,38.198661 14.6483,73.408661 -0.24175,35.21 -10.94925,69.46035 -10.94925,69.46035 l -8.26917,-0.26252 c 0,0 -10.283995,-33.4462 -11.155789,-69.21407 C 91.923738,83.909443 108.52144,46.284889 108.52144,46.284889 Z"
+				id="path2"
+			/>
+			<path
+				style="fill:#fcb097;fill-rule:evenodd;stroke:#fcb097;stroke-width:0.238125;stroke-linejoin:round"
+				d="m 109.04647,54.870229 c 5.92197,24.817595 4.26674,71.475121 4.02207,99.601231 1.91457,-14.76373 1.80313,-46.19535 3.01148,-46.58057 0.81458,0.40232 1.44775,12.73563 0.39378,28.61396 2.35871,-19.82349 5.48472,-43.785727 -2.83335,-79.928283 4.02006,25.679348 4.19086,43.654693 2.17707,43.176404 -0.56997,0.703019 -1.92998,-26.648141 -6.77105,-44.882742 z"
+				id="path3"
+			/>
+			<path
+				style="fill:#fcb097;fill-rule:evenodd;stroke:#fcb097;stroke-width:0.238125;stroke-linejoin:round"
+				d="m 106.56484,145.19022 c 5.94128,-27.99615 6.67795,-80.336217 -1.19356,-87.826113 5.51667,5.898287 2.60266,63.319583 1.19356,87.826113 z"
+				id="path4"
+			/>
+			<path
+				style="fill:#fcb097;fill-rule:evenodd;stroke:#fcb097;stroke-width:0.238125;stroke-linejoin:round"
+				d="m 104.30587,181.80834 c -1.36576,-35.06496 -3.50124,-59.64989 -2.36475,-60.60509 1.00523,0.75113 1.28042,6.85901 1.856,16.98785 0.96934,-15.99124 1.349,-33.1284 1.3886,-43.294629 0.0396,-10.166233 0.8488,-19.834375 -1.12701,-43.877344 -7.751105,29.378507 -6.478004,65.643043 -6.354615,72.228793 0.123389,6.58575 0.108122,24.077 6.601775,58.56042 z"
+				id="path5"
+			/>
+			<path
+				style="fill:#d07a5a;fill-rule:evenodd;stroke:#d07a5a;stroke-width:0.231448;stroke-linejoin:round"
+				d="M 108.25905,43.467353 C 89.678029,66.790317 90.950225,111.77194 90.948904,120.18306 c -0.0013,8.41112 0.322436,45.05901 11.604316,71.112 1.19736,4.66131 1.92209,6.27729 1.92209,6.27729 l 6.60147,-0.13 c 0,0 0.71987,-1.98976 1.98466,-6.38791 12.15075,-27.09381 12.4167,-62.27578 12.61262,-71.01243 0.19592,-8.73666 0.0935,-53.498579 -17.41501,-76.574657 z m -1.05034,12.397385 c 14.2321,13.603881 14.53143,47.802722 13.99311,64.830682 -0.3652,11.55195 -2.65004,27.42603 -4.89195,40.08291 0,0 1.64647,-12.51111 -0.22821,-33.01638 -2.00598,26.10826 -1.06752,44.71071 -3.0725,44.39613 -0.82342,-1.05842 -0.47796,-10.47382 -1.65384,-33.61066 -2.54603,17.19409 -0.92416,28.57693 -2.42162,33.21362 -1.23488,-2.55369 -1.89692,-32.43669 -2.82971,-32.5938 -1.32666,-0.40506 -3.19981,20.94709 -3.19981,20.94709 -1.40047,-2.81796 -0.7219,-1.42051 -3.101853,-30.74077 -0.935822,22.12818 3.647883,35.97882 3.097663,40.42901 -1.60051,-1.25252 -8.44011,-26.94916 -8.217833,-49.85107 0.222278,-22.901905 0.986901,-30.958398 2.576517,-38.0574 0.539333,5.918074 1.369263,17.991233 2.806316,37.18972 -0.138354,-26.795194 1.37405,-47.785167 2.68005,-51.193969 1.56857,-0.185525 2.59825,5.450943 3.97194,12.407372 0.45469,-10.77159 -0.49292,-21.891055 0.49173,-24.432485 z"
+				id="path6"
+			/>
+			<path
+				style="fill:url(#tendonGrad);fill-rule:evenodd;stroke:none"
+				d="m 113.71117,189.86808 c 0,0 -2.26673,7.11766 -2.11275,9.69548 -2.58399,-0.0209 -4.06296,-0.10765 -7.05553,-0.10255 -0.23203,-2.08446 -2.91667,-9.66388 -2.91667,-9.66388 4.05031,-0.35271 12.14105,0.1426 12.08495,0.0709 z"
+				id="path7"
+			/>
+		</symbol>
+		<!-- Clip auf den sichtbaren Bildbereich (viewBox: 850 790.0625 94×52.875) -->
+		<clipPath id="veneCl">
+			<rect x="850" y="790.0625" width="94" height="52.875" id="rect2" />
+		</clipPath>
+	</defs>
+	<!-- ── Blut / Lymphe im Venenkanal (unterste Ebene) ─────────────────── -->
+	<path
+		id="water"
+		clip-path="url(#veneCl)"
+		style="fill:#b4e0f7;stroke:none"
+		d="m 910.26963,787.41711 -0.17161,59.5966 -22.4127,0.0778 0.23996,-59.34343 z"
+	/>
+	<!-- ── stroke: erscheint bei Klick 3, wandert bei Klick 4 nach oben ── -->
+	<g clip-path="url(#veneCl)" id="g1">
+		<path
+			id="stroke"
+			style="fill:#5b87fd;fill-opacity:1;stroke-width:0.0489583"
+			d="m 885.56179,798.0443 c 0,0 5.93204,0.72662 8.26687,-3e-5 2.33483,-0.72665 4.36903,-3.37174 5.4875,-3.42078 1.11847,-0.049 2.99158,2.60117 5.48748,3.34951 2.4959,0.74834 8.90826,0.2138 8.90826,0.2138 l -0.42759,41.33434 c 0,0 -5.60642,0.40052 -8.12433,-0.4276 -2.51791,-0.82812 -5.05384,-3.57993 -6.12889,-3.5633 -1.07504,0.0166 -4.07023,2.71483 -6.34268,3.3495 -2.27245,0.63467 -6.91282,-0.35633 -6.91282,-0.35633 z"
+			motion-initial='{"opacity": 0, "y": 0}'
+			motion-click-3='{"opacity": 1, "transition": {"duration": 300, "ease": "easeInOut"}}'
+			motion-click-4='{"y": "-90%", "transition": {"duration": 600, "ease": "easeInOut"}}'
+			motion-style="transform-box:fill-box"
+		/>
+	</g>
+	<!-- ── stroke-2: erscheint bei Klick 5 an Originalposition von stroke ──
+	     d identisch zu stroke — nach Änderung in Inkscape beide synchron halten -->
+	<g clip-path="url(#veneCl)">
+		<path
+			id="stroke-2"
+			style="fill:#5b87fd;fill-opacity:1;stroke-width:0.0489583"
+			d="m 885.56179,798.0443 c 0,0 5.93204,0.72662 8.26687,-3e-5 2.33483,-0.72665 4.36903,-3.37174 5.4875,-3.42078 1.11847,-0.049 2.99158,2.60117 5.48748,3.34951 2.4959,0.74834 8.90826,0.2138 8.90826,0.2138 l -0.42759,41.33434 c 0,0 -5.60642,0.40052 -8.12433,-0.4276 -2.51791,-0.82812 -5.05384,-3.57993 -6.12889,-3.5633 -1.07504,0.0166 -4.07023,2.71483 -6.34268,3.3495 -2.27245,0.63467 -6.91282,-0.35633 -6.91282,-0.35633 z"
+			motion-initial='{"opacity": 0}'
+			motion-click-5='{"opacity": 1, "transition": {"duration": 300, "ease": "easeInOut"}}'
+			motion-style="transform-box:fill-box"
+		/>
+	</g>
+	<!-- ── Shore-Flächen links und rechts ──────────────────────────────────────
     d wird von MorphSVG.vue in Echtzeit aus inner-line-* abgeleitet
     (shore-inner/pre/post). Das statische d dient nur als Inkscape-Vorschau;
     nach Änderung von inner-line-* in Inkscape: pnpm run sync:shores.
 	-->
-  <g
-     id="valves"
-     transform="translate(6.2500001e-6)">
-    <path
-       style="fill:#1839b4;stroke:#1839b4;stroke-width:0.354757;stroke-linejoin:round"
-       d="m 899.10085,794.44949 c -2.40108,4.56719 -5.08712,4.43085 -5.49412,4.40984 -0.40701,-0.021 -0.27548,-1.43331 -0.052,-1.68954 0.22348,-0.25623 1.97032,0.48052 5.54612,-2.7203 z"
-       id="valve-left-top"
-       motion-initial="{'rotate': 0}"
-       motion-click-2="{'rotate': -30, 'transition': {'duration': 400, 'ease': 'easeInOut'}}"
-       motion-style="transform-box:fill-box;transform-origin:left bottom"
-       sodipodi:nodetypes="czzc" />
-    <path
-       style="fill:#1839b4;stroke:#1839b4;stroke-width:0.356973;stroke-linejoin:round"
-       d="m 905.09801,797.18487 c -0.31739,-0.22849 -3.29198,-0.55426 -5.77154,-2.74413 2.43239,4.56491 5.36967,4.43706 5.7189,4.43282 0.69723,-0.008 0.37003,-1.4602 0.0526,-1.68869 z"
-       id="valve-right-top"
-       motion-initial="{'rotate': 0}"
-       motion-click-2="{'rotate': 30, 'transition': {'duration': 400, 'ease': 'easeInOut'}}"
-       motion-style="transform-box:fill-box;transform-origin:right bottom"
-       sodipodi:nodetypes="zczz" />
-    <path
-       style="fill:#1839b4;stroke:#1839b4;stroke-width:0.354757;stroke-linejoin:round"
-       d="m 893.26761,837.84106 c 0.3655,-0.18445 3.24962,-0.55453 5.69726,-2.7455 -2.40108,4.56719 -5.26349,4.43085 -5.6453,4.43504 -0.38181,0.004 -0.41746,-1.50509 -0.052,-1.68954 z"
-       id="valve-left-bottom"
-       motion-initial="{'rotate': 0}"
-       motion-click-2="{'rotate': -30, 'transition': {'duration': 400, 'ease': 'easeInOut'}}"
-       motion-style="transform-box:fill-box;transform-origin:left bottom"
-       sodipodi:nodetypes="zczz" />
-    <path
-       style="fill:#1839b4;stroke:#1839b4;stroke-width:0.356973;stroke-linejoin:round"
-       d="m 904.96203,837.83094 c -0.32355,-0.16691 -3.29198,-0.55426 -5.77154,-2.74413 2.43239,4.56491 5.30539,4.43668 5.7189,4.43282 0.41351,-0.004 0.37619,-1.52178 0.0526,-1.68869 z"
-       id="valve-right-bottom"
-       motion-initial="{'rotate': 0}"
-       motion-click-2="{'rotate': 30, 'transition': {'duration': 400, 'ease': 'easeInOut'}}"
-       motion-style="transform-box:fill-box;transform-origin:right bottom"
-       sodipodi:nodetypes="zczz" />
-  </g>
-  <path
-     id="fill-shore-left"
-     clip-path="url(#veneCl)"
-     style="fill:#fce4e2;stroke:none"
-     shore-inner="inner-line-left"
-     shore-pre="M 864.7941,788.10417 L "
-     shore-post=" L 871.32578,844.46853 c -3.16821,-11.48978 -4.48934,-17.84663 -5.9722,-29.68093 -1.55639,-9.64941 -1.40214,-16.97984 -0.55948,-26.68343 Z"
-     d="M 864.7941,788.10417 L 893.83513,788.92191 c 0,0 -0.40375,2.47266 -0.4877,6.55616 -0.11101,6.76104 1.61959,15.87572 1.43531,20.95016 0.0321,8.21177 -1.54248,12.91151 -1.65306,19.9279 -0.0771,2.61925 -0.13181,4.85875 0.0741,7.61468 L 871.32578,844.46853 c -3.16821,-11.48978 -4.48934,-17.84663 -5.9722,-29.68093 -1.55639,-9.64941 -1.40214,-16.97984 -0.55948,-26.68343 Z" />
-  <path
-     id="fill-shore-right"
-     clip-path="url(#veneCl)"
-     style="fill:#fce4e2;stroke:none"
-     shore-inner="inner-line-right"
-     shore-pre=""
-     shore-post=" L 925.15141,844.99599 c 1.79843,-7.99672 2.90524,-10.93955 3.48189,-19.15122 1.22062,-13.59079 0.75036,-23.64649 -0.35146,-37.22185 Z"
-     d="M 904.97381,789.00683 c 0,0 0.51712,3.41879 0.53233,6.145 0.0423,5.1333 -1.02902,12.66855 -1.14737,20.61327 -0.11835,8.86428 1.21309,15.017 0.98655,20.65464 0.0169,4.69103 -0.30263,7.46203 -0.30263,7.46203 L 925.15141,844.99599 c 1.79843,-7.99672 2.90524,-10.93955 3.48189,-19.15122 1.22062,-13.59079 0.75036,-23.64649 -0.35146,-37.22185 Z" />
-  <!-- ── Äußere Ränder (fest) ────────────────────────────────────────────────
+	<g id="valves" transform="translate(6.2500001e-6)" style="display:inline">
+		<path
+			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.354757;stroke-linejoin:round"
+			d="m 899.10085,794.44949 c -2.40108,4.56719 -5.08712,4.43085 -5.49412,4.40984 -0.40701,-0.021 -0.27548,-1.43331 -0.052,-1.68954 0.22348,-0.25623 1.97032,0.48052 5.54612,-2.7203 z"
+			id="valve-left-top"
+			motion-initial='{"rotate": 0}'
+			motion-click-2='{"rotate": -30, "transition": {"duration": 400, "ease": "easeInOut"}}'
+			motion-style="transform-box:fill-box;transform-origin:left bottom"
+			sodipodi:nodetypes="czzc"
+		/>
+		<path
+			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.356973;stroke-linejoin:round"
+			d="m 905.09801,797.18487 c -0.31739,-0.22849 -3.29198,-0.55426 -5.77154,-2.74413 2.43239,4.56491 5.36967,4.43706 5.7189,4.43282 0.69723,-0.008 0.37003,-1.4602 0.0526,-1.68869 z"
+			id="valve-right-top"
+			motion-initial='{"rotate": 0}'
+			motion-click-2='{"rotate": 30, "transition": {"duration": 400, "ease": "easeInOut"}}'
+			motion-style="transform-box:fill-box;transform-origin:right bottom"
+			sodipodi:nodetypes="zczz"
+		/>
+		<path
+			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.354757;stroke-linejoin:round"
+			d="m 893.26761,837.84106 c 0.3655,-0.18445 3.24962,-0.55453 5.69726,-2.7455 -2.40108,4.56719 -5.26349,4.43085 -5.6453,4.43504 -0.38181,0.004 -0.41746,-1.50509 -0.052,-1.68954 z"
+			id="valve-left-bottom"
+			motion-initial='{"rotate": 0}'
+			motion-click-2='{"rotate": -30, "transition": {"duration": 400, "ease": "easeInOut"}}'
+			motion-style="transform-box:fill-box;transform-origin:left bottom"
+			sodipodi:nodetypes="zczz"
+		/>
+		<path
+			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.356973;stroke-linejoin:round"
+			d="m 904.96203,837.83094 c -0.32355,-0.16691 -3.29198,-0.55426 -5.77154,-2.74413 2.43239,4.56491 5.30539,4.43668 5.7189,4.43282 0.41351,-0.004 0.37619,-1.52178 0.0526,-1.68869 z"
+			id="valve-right-bottom"
+			motion-initial='{"rotate": 0}'
+			motion-click-2='{"rotate": 30, "transition": {"duration": 400, "ease": "easeInOut"}}'
+			motion-style="transform-box:fill-box;transform-origin:right bottom"
+			sodipodi:nodetypes="zczz"
+		/>
+	</g>
+	<path
+		id="fill-shore-left"
+		clip-path="url(#veneCl)"
+		style="fill:#fce4e2;stroke:none"
+		shore-inner="inner-line-left"
+		shore-pre="M 864.7941,788.10417 L "
+		shore-post=" L 871.32578,844.46853 c -3.16821,-11.48978 -4.48934,-17.84663 -5.9722,-29.68093 -1.55639,-9.64941 -1.40214,-16.97984 -0.55948,-26.68343 Z"
+		d="M 864.7941,788.10417 L 893.83513,788.92191 c 0,0 -0.40375,2.47266 -0.4877,6.55616 -0.11101,6.76104 1.61959,15.87572 1.43531,20.95016 0.0321,8.21177 -1.54248,12.91151 -1.65306,19.9279 -0.0771,2.61925 -0.13181,4.85875 0.0741,7.61468 L 871.32578,844.46853 c -3.16821,-11.48978 -4.48934,-17.84663 -5.9722,-29.68093 -1.55639,-9.64941 -1.40214,-16.97984 -0.55948,-26.68343 Z"
+	/>
+	<path
+		id="fill-shore-right"
+		clip-path="url(#veneCl)"
+		style="fill:#fce4e2;stroke:none"
+		shore-inner="inner-line-right"
+		shore-pre=""
+		shore-post=" L 925.15141,844.99599 c 1.79843,-7.99672 2.90524,-10.93955 3.48189,-19.15122 1.22062,-13.59079 0.75036,-23.64649 -0.35146,-37.22185 Z"
+		d="M 904.97381,789.00683 c 0,0 0.51712,3.41879 0.53233,6.145 0.0423,5.1333 -1.02902,12.66855 -1.14737,20.61327 -0.11835,8.86428 1.21309,15.017 0.98655,20.65464 0.0169,4.69103 -0.30263,7.46203 -0.30263,7.46203 L 925.15141,844.99599 c 1.79843,-7.99672 2.90524,-10.93955 3.48189,-19.15122 1.22062,-13.59079 0.75036,-23.64649 -0.35146,-37.22185 Z"
+	/>
+	<!-- ── Äußere Ränder (fest) ────────────────────────────────────────────────
     Selbe Bezier-Punkte wie äußere Kante von fill-shore-left/-right.
 	-->
-  <path
-     id="outer-line-left"
-     clip-path="url(#veneCl)"
-     style="fill:none;stroke:#ffcdcc;stroke-width:1.82;stroke-linecap:round"
-     d="M 864.7941,788.10417 c -0.84266,9.70359 -0.99691,17.03402 0.55948,26.68343 1.48286,11.8343 2.80399,18.19115 5.9722,29.68093" />
-  <path
-     id="outer-line-right"
-     clip-path="url(#veneCl)"
-     style="fill:none;stroke:#ffcdcc;stroke-width:1.82;stroke-linecap:round"
-     d="M 928.28184,788.62292 c 1.10182,13.57536 1.57208,23.63106 0.35146,37.22185 -0.57665,8.21167 -1.68346,11.15450 -3.48189,19.15122" />
-  <!-- ── Innere Venenwände (morphbar bei Klick 1) ───────────────────────────
+	<path
+		id="outer-line-left"
+		clip-path="url(#veneCl)"
+		style="fill:none;stroke:#ffcdcc;stroke-width:1.82;stroke-linecap:round"
+		d="M 864.7941,788.10417 c -0.84266,9.70359 -0.99691,17.03402 0.55948,26.68343 1.48286,11.8343 2.80399,18.19115 5.9722,29.68093"
+	/>
+	<path
+		id="outer-line-right"
+		clip-path="url(#veneCl)"
+		style="fill:none;stroke:#ffcdcc;stroke-width:1.82;stroke-linecap:round"
+		d="M 928.28184,788.62292 c 1.10182,13.57536 1.57208,23.63106 0.35146,37.22185 -0.57665,8.21167 -1.68346,11.15450 -3.48189,19.15122"
+	/>
+	<!-- ── Innere Venenwände (morphbar bei Klick 1) ───────────────────────────
     inner-line-left / inner-line-right  (morph="from", morph-click="1")
       Koordinaten = innere Kante von fill-shore-left/-right.
       inkscape:label="inner-shore-*" für Inkscape-Ebenen/XML-Editor.
@@ -215,68 +229,72 @@
       Vollständige Strich-Formatierung identisch zu from-Pfad →
       korrekte Vorschau in Inkscape, wenn Pfad eingeblendet wird.
 	-->
-  <path
-     inkscape:label="inner-shore-left"
-     morph="from"
-     morph-click="1"
-     id="inner-line-left"
-     clip-path="url(#veneCl)"
-     style="fill:none;stroke:#1839b4;stroke-width:0.832292;stroke-linecap:round"
-     d="M 893.83513,788.92191 c 0,0 -0.40375,2.47266 -0.4877,6.55616 -0.11101,6.76104 1.61959,15.87572 1.43531,20.95016 0.0321,8.21177 -1.54248,12.91151 -1.65306,19.9279 -0.0771,2.61925 -0.13181,4.85875 0.0741,7.61468" />
-  <path
-     inkscape:label="inner-shore-left"
-     morph="to"
-     id="inner-line-left-to"
-     style="display:none;fill:none;stroke:#1839b4;stroke-width:0.832292;stroke-linecap:round"
-     d="M 894.04893,788.63685 c 0,0 -0.61755,2.75772 -0.7015,6.84122 -0.11101,6.76104 3.83801,6.08405 4.18922,20.03219 -0.50339,16.01451 -4.83187,16.0479 -4.40697,20.84587 -0.0771,2.61925 -0.13181,4.64495 0.0741,7.40088" />
-  <path
-     inkscape:label="inner-shore-right"
-     morph="from"
-     morph-click="1"
-     id="inner-line-right"
-     clip-path="url(#veneCl)"
-     style="fill:none;stroke:#1839b4;stroke-width:0.832292;stroke-linecap:round"
-     d="M 904.97381,789.00683 c 0,0 0.51712,3.41879 0.53233,6.145 0.0423,5.1333 -1.02902,12.66855 -1.14737,20.61327 -0.11835,8.86428 1.21309,15.017 0.98655,20.65464 0.0169,4.69103 -0.30263,7.46203 -0.30263,7.46203" />
-  <path
-     inkscape:label="inner-shore-right"
-     morph="to"
-     id="inner-line-right-to"
-     style="display:none;fill:none;stroke:#1839b4;stroke-width:0.832292;stroke-linecap:round"
-     d="M 904.97381,788.93557 c 0,0 0.51712,3.49005 0.53233,6.21626 0.0423,5.1333 -4.16541,9.37916 -3.90128,20.38378 0.49363,16.20803 3.967,15.24649 3.74046,20.88413 0.0169,4.69103 -0.30263,7.46203 -0.30263,7.46203" />
-  <!-- ── Klappen (4 Dreiecke) ──────────────────────────────────────────────── -->
-  <!-- ── Muskeln ── beide referenzieren dasselbe <symbol> ──────────────────────
+	<path
+		inkscape:label="inner-shore-left"
+		morph="from"
+		morph-click="1"
+		id="inner-line-left"
+		clip-path="url(#veneCl)"
+		style="fill:none;stroke:#1839b4;stroke-width:0.832292;stroke-linecap:round"
+		d="M 893.83513,788.92191 c 0,0 -0.40375,2.47266 -0.4877,6.55616 -0.11101,6.76104 1.61959,15.87572 1.43531,20.95016 0.0321,8.21177 -1.54248,12.91151 -1.65306,19.9279 -0.0771,2.61925 -0.13181,4.85875 0.0741,7.61468"
+	/>
+	<path
+		inkscape:label="inner-shore-left"
+		morph="to"
+		id="inner-line-left-to"
+		style="display:none;fill:none;stroke:#1839b4;stroke-width:0.832292;stroke-linecap:round"
+		d="M 894.04893,788.63685 c 0,0 -0.61755,2.75772 -0.7015,6.84122 -0.11101,6.76104 3.83801,6.08405 4.18922,20.03219 -0.50339,16.01451 -4.83187,16.0479 -4.40697,20.84587 -0.0771,2.61925 -0.13181,4.64495 0.0741,7.40088"
+	/>
+	<path
+		inkscape:label="inner-shore-right"
+		morph="from"
+		morph-click="1"
+		id="inner-line-right"
+		clip-path="url(#veneCl)"
+		style="fill:none;stroke:#1839b4;stroke-width:0.832292;stroke-linecap:round"
+		d="M 904.97381,789.00683 c 0,0 0.51712,3.41879 0.53233,6.145 0.0423,5.1333 -1.02902,12.66855 -1.14737,20.61327 -0.11835,8.86428 1.21309,15.017 0.98655,20.65464 0.0169,4.69103 -0.30263,7.46203 -0.30263,7.46203"
+	/>
+	<path
+		inkscape:label="inner-shore-right"
+		morph="to"
+		id="inner-line-right-to"
+		style="display:none;fill:none;stroke:#1839b4;stroke-width:0.832292;stroke-linecap:round"
+		d="M 904.97381,788.93557 c 0,0 0.51712,3.49005 0.53233,6.21626 0.0423,5.1333 -4.16541,9.37916 -3.90128,20.38378 0.49363,16.20803 3.967,15.24649 3.74046,20.88413 0.0169,4.69103 -0.30263,7.46203 -0.30263,7.46203"
+	/>
+	<!-- ── Klappen (4 Dreiecke) ──────────────────────────────────────────────── -->
+	<!-- ── Muskeln ── beide referenzieren dasselbe <symbol> ──────────────────────
     Original: 6 Pfade × 2 = 12 Elemente.  Hier: 6 Pfade in <symbol>, 2× <use>.
     Äußeres <g>: Positionierung (gleiche Transforms wie Original)
     Inneres <g>: CSS-Animation via motion-*-Attribute (MorphSVG.vue)
   -->
-  <g
-     id="muscle-right"
-     transform="matrix(0.21269151,0,0,0.25577576,885.32304,785.4231)">
-    <g
-       transform="matrix(1.7,0,0,1,-76,0)"
-       motion-preview-transform="matrix(1.7,0,0,1,-76,0)"
-       motion-initial='{"scaleX": 1}'
-       motion-click-1='{"scaleX": 1.7, "transition": {"duration": 700, "ease": "easeInOut"}}'
-       motion-style="transform-box: fill-box; transform-origin: center"
-       id="g15">
-      <use
-         href="#muscle-shape"
-         id="use15" />
-    </g>
-  </g>
-  <g
-     id="muscle-left"
-     transform="matrix(0.21269151,0,0,0.25577576,867.76615,785.30923)">
-    <g
-       transform="matrix(1.7,0,0,1,-76,0)"
-       motion-preview-transform="matrix(1.7,0,0,1,-76,0)"
-       motion-initial='{"scaleX": 1}'
-       motion-click-1='{"scaleX": 1.7, "transition": {"duration": 700, "ease": "easeInOut"}}'
-       motion-style="transform-box: fill-box; transform-origin: center"
-       id="g16">
-      <use
-         href="#muscle-shape"
-         id="use16" />
-    </g>
-  </g>
+	<g
+		id="muscle-right"
+		transform="matrix(0.21269151,0,0,0.25577576,885.32304,785.4231)"
+	>
+		<g
+			transform="matrix(1.7,0,0,1,-76,0)"
+			motion-preview-transform="matrix(1.7,0,0,1,-76,0)"
+			motion-initial="{&quot;scaleX&quot;: 1}"
+			motion-click-1="{&quot;scaleX&quot;: 1.7, &quot;transition&quot;: {&quot;duration&quot;: 700, &quot;ease&quot;: &quot;easeInOut&quot;}}"
+			motion-style="transform-box: fill-box; transform-origin: center"
+			id="g15"
+		>
+			<use href="#muscle-shape" id="use15" />
+		</g>
+	</g>
+	<g
+		id="muscle-left"
+		transform="matrix(0.21269151,0,0,0.25577576,867.76615,785.30923)"
+	>
+		<g
+			transform="matrix(1.7,0,0,1,-76,0)"
+			motion-preview-transform="matrix(1.7,0,0,1,-76,0)"
+			motion-initial="{&quot;scaleX&quot;: 1}"
+			motion-click-1="{&quot;scaleX&quot;: 1.7, &quot;transition&quot;: {&quot;duration&quot;: 700, &quot;ease&quot;: &quot;easeInOut&quot;}}"
+			motion-style="transform-box: fill-box; transform-origin: center"
+			id="g16"
+		>
+			<use href="#muscle-shape" id="use16" />
+		</g>
+	</g>
 </svg>
