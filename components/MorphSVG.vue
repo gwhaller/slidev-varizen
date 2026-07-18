@@ -66,7 +66,11 @@ function applyMotionState(el, state, animated = false) {
 			.replace("easeInOut", "ease-in-out")
 			.replace("easeIn", "ease-in")
 			.replace("easeOut", "ease-out");
-		const props2 = ["transform", state?.opacity != null ? "opacity" : null]
+		const props2 = [
+			"transform",
+			state?.opacity != null ? "opacity" : null,
+			state?.clipPath != null ? "clip-path" : null,
+		]
 			.filter(Boolean)
 			.map((p) => `${p} ${d}ms ${cssEase} ${delay}ms`)
 			.join(", ");
@@ -76,6 +80,7 @@ function applyMotionState(el, state, animated = false) {
 	}
 	el.style.transform = transform;
 	if (state?.opacity != null) el.style.opacity = state.opacity;
+	if (state?.clipPath != null) el.style.clipPath = state.clipPath;
 }
 
 onMounted(() => {

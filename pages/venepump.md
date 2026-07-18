@@ -1,5 +1,5 @@
 ---
-clicks: 5
+clicks: 7
 layout: none
 ---
 

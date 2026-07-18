@@ -21,33 +21,10 @@
 	viewBox="850 790.0625 94 52.875"
 	version="1.1"
 	id="svg2"
-	sodipodi:docname="venepump.svg"
-	inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
-	xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-	xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	xmlns="http://www.w3.org/2000/svg"
 	xmlns:svg="http://www.w3.org/2000/svg"
 >
-	<sodipodi:namedview
-		id="namedview2"
-		pagecolor="#505050"
-		bordercolor="#eeeeee"
-		borderopacity="1"
-		inkscape:showpageshadow="0"
-		inkscape:pageopacity="0"
-		inkscape:pagecheckerboard="0"
-		inkscape:deskcolor="#505050"
-		inkscape:zoom="0.68697917"
-		inkscape:cx="960"
-		inkscape:cy="463.62396"
-		inkscape:window-width="1920"
-		inkscape:window-height="994"
-		inkscape:window-x="0"
-		inkscape:window-y="0"
-		inkscape:window-maximized="1"
-		inkscape:current-layer="svg2"
-	/>
 	<defs id="defs2">
 		<!-- Gradient für Sehnen-Glanz — einmal definiert, von beiden Muskeln genutzt -->
 		<linearGradient id="muscleGrad">
@@ -124,24 +101,25 @@
 	<!-- ── stroke: erscheint bei Klick 3, wandert bei Klick 4 nach oben ── -->
 	<g clip-path="url(#veneCl)" id="g1">
 		<path
-			id="stroke"
+			id="stroke-1"
 			style="fill:#5b87fd;fill-opacity:1;stroke-width:0.0489583"
-			d="m 885.56179,798.0443 c 0,0 5.93204,0.72662 8.26687,-3e-5 2.33483,-0.72665 4.36903,-3.37174 5.4875,-3.42078 1.11847,-0.049 2.99158,2.60117 5.48748,3.34951 2.4959,0.74834 8.90826,0.2138 8.90826,0.2138 l -0.42759,41.33434 c 0,0 -5.60642,0.40052 -8.12433,-0.4276 -2.51791,-0.82812 -5.05384,-3.57993 -6.12889,-3.5633 -1.07504,0.0166 -4.07023,2.71483 -6.34268,3.3495 -2.27245,0.63467 -6.91282,-0.35633 -6.91282,-0.35633 z"
+			d="m 885.56179,798.0443 c 0,0 5.93204,0.72662 8.26687,-3e-5 2.33483,-0.72665 4.36903,-3.37174 5.4875,-3.42078 1.11847,-0.049 2.99158,2.60117 5.48748,3.34951 2.4959,0.74834 8.90826,0.2138 8.90826,0.2138 l -0.42759,41.33434 c 0,0 -5.60642,0.40052 -8.12433,-0.4276 -2.51791,-0.82812 -5.05384,-3.57993 -6.12889,-3.5633 -1.07504,0.0166 -3.50011,2.85736 -5.77256,3.49203 -2.27245,0.63467 -7.48294,0.35633 -7.48294,0.35633 z"
 			motion-initial='{"opacity": 0, "y": 0}'
-			motion-click-3='{"opacity": 1, "transition": {"duration": 300, "ease": "easeInOut"}}'
-			motion-click-4='{"y": "-90%", "transition": {"duration": 600, "ease": "easeInOut"}}'
+			motion-click-4='{"opacity": 1, "transition": {"duration": 300, "ease": "easeInOut"}}'
+			motion-click-5='{"y": "-90%", "transition": {"duration": 600, "ease": "easeInOut"}}'
 			motion-style="transform-box:fill-box"
 		/>
 	</g>
 	<!-- ── stroke-2: erscheint bei Klick 5 an Originalposition von stroke ──
-	     d identisch zu stroke — nach Änderung in Inkscape beide synchron halten -->
-	<g clip-path="url(#veneCl)">
+	d identisch zu stroke — nach Änderung in Inkscape beide synchron halten -->
+	<g clip-path="url(#veneCl)" id="g2">
 		<path
 			id="stroke-2"
 			style="fill:#5b87fd;fill-opacity:1;stroke-width:0.0489583"
-			d="m 885.56179,798.0443 c 0,0 5.93204,0.72662 8.26687,-3e-5 2.33483,-0.72665 4.36903,-3.37174 5.4875,-3.42078 1.11847,-0.049 2.99158,2.60117 5.48748,3.34951 2.4959,0.74834 8.90826,0.2138 8.90826,0.2138 l -0.42759,41.33434 c 0,0 -5.60642,0.40052 -8.12433,-0.4276 -2.51791,-0.82812 -5.05384,-3.57993 -6.12889,-3.5633 -1.07504,0.0166 -4.07023,2.71483 -6.34268,3.3495 -2.27245,0.63467 -6.91282,-0.35633 -6.91282,-0.35633 z"
-			motion-initial='{"opacity": 0}'
-			motion-click-5='{"opacity": 1, "transition": {"duration": 300, "ease": "easeInOut"}}'
+			d="m 885.56179,798.0443 c 0,0 5.93204,0.72662 8.26687,-3e-5 2.33483,-0.72665 4.36903,-3.37174 5.4875,-3.42078 1.11847,-0.049 2.99158,2.60117 5.48748,3.34951 2.4959,0.74834 8.90826,0.2138 8.90826,0.2138 l -0.42759,41.33434 c 0,0 -5.60642,0.40052 -8.12433,-0.4276 -2.51791,-0.82812 -5.05384,-3.57993 -6.12889,-3.5633 -1.07504,0.0166 -3.50011,2.85736 -5.77256,3.49203 -2.27245,0.63467 -7.48294,0.35633 -7.48294,0.35633 z"
+			motion-initial='{"y": "90%", "opacity": 0}'
+			motion-click-6='{"opacity": 1, "transition": {"duration": 300, "ease": "easeInOut"}}'
+			motion-click-7='{"y": "0", "transition": {"duration": 300, "ease": "easeInOut"}}'
 			motion-style="transform-box:fill-box"
 		/>
 	</g>
@@ -155,37 +133,35 @@
 			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.354757;stroke-linejoin:round"
 			d="m 899.10085,794.44949 c -2.40108,4.56719 -5.08712,4.43085 -5.49412,4.40984 -0.40701,-0.021 -0.27548,-1.43331 -0.052,-1.68954 0.22348,-0.25623 1.97032,0.48052 5.54612,-2.7203 z"
 			id="valve-left-top"
-			motion-initial='{"rotate": 0}'
-			motion-click-2='{"rotate": -30, "transition": {"duration": 400, "ease": "easeInOut"}}'
+			motion-initial='{"rotate": 0, "clipPath": "inset(0 100% 0 0)"}'
+			motion-click-1='{"clipPath": "inset(0 0% 0 0)"}'
+			motion-click-3='{"rotate": -30, "transition": {"duration": 400, "ease": "easeInOut"}}'
 			motion-style="transform-box:fill-box;transform-origin:left bottom"
-			sodipodi:nodetypes="czzc"
 		/>
 		<path
 			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.356973;stroke-linejoin:round"
 			d="m 905.09801,797.18487 c -0.31739,-0.22849 -3.29198,-0.55426 -5.77154,-2.74413 2.43239,4.56491 5.36967,4.43706 5.7189,4.43282 0.69723,-0.008 0.37003,-1.4602 0.0526,-1.68869 z"
 			id="valve-right-top"
-			motion-initial='{"rotate": 0}'
-			motion-click-2='{"rotate": 30, "transition": {"duration": 400, "ease": "easeInOut"}}'
+			motion-initial='{"rotate": 0, "clipPath": "inset(0 0 0 100%)"}'
+			motion-click-1='{"clipPath": "inset(0 0% 0 0)"}'
+			motion-click-3='{"rotate": 30, "transition": {"duration": 400, "ease": "easeInOut"}}'
 			motion-style="transform-box:fill-box;transform-origin:right bottom"
-			sodipodi:nodetypes="zczz"
 		/>
 		<path
 			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.354757;stroke-linejoin:round"
 			d="m 893.26761,837.84106 c 0.3655,-0.18445 3.24962,-0.55453 5.69726,-2.7455 -2.40108,4.56719 -5.26349,4.43085 -5.6453,4.43504 -0.38181,0.004 -0.41746,-1.50509 -0.052,-1.68954 z"
 			id="valve-left-bottom"
 			motion-initial='{"rotate": 0}'
-			motion-click-2='{"rotate": -30, "transition": {"duration": 400, "ease": "easeInOut"}}'
+			motion-click-6='{"rotate": -30, "transition": {"duration": 400, "ease": "easeInOut"}}'
 			motion-style="transform-box:fill-box;transform-origin:left bottom"
-			sodipodi:nodetypes="zczz"
 		/>
 		<path
 			style="fill:#1839b4;stroke:#1839b4;stroke-width:0.356973;stroke-linejoin:round"
 			d="m 904.96203,837.83094 c -0.32355,-0.16691 -3.29198,-0.55426 -5.77154,-2.74413 2.43239,4.56491 5.30539,4.43668 5.7189,4.43282 0.41351,-0.004 0.37619,-1.52178 0.0526,-1.68869 z"
 			id="valve-right-bottom"
 			motion-initial='{"rotate": 0}'
-			motion-click-2='{"rotate": 30, "transition": {"duration": 400, "ease": "easeInOut"}}'
+			motion-click-6='{"rotate": 30, "transition": {"duration": 400, "ease": "easeInOut"}}'
 			motion-style="transform-box:fill-box;transform-origin:right bottom"
-			sodipodi:nodetypes="zczz"
 		/>
 	</g>
 	<path
@@ -232,7 +208,7 @@
 	<path
 		inkscape:label="inner-shore-left"
 		morph="from"
-		morph-click="1"
+		morph-click="2"
 		id="inner-line-left"
 		clip-path="url(#veneCl)"
 		style="fill:none;stroke:#1839b4;stroke-width:0.832292;stroke-linecap:round"
@@ -243,12 +219,12 @@
 		morph="to"
 		id="inner-line-left-to"
 		style="display:none;fill:none;stroke:#1839b4;stroke-width:0.832292;stroke-linecap:round"
-		d="M 894.04893,788.63685 c 0,0 -0.61755,2.75772 -0.7015,6.84122 -0.11101,6.76104 3.83801,6.08405 4.18922,20.03219 -0.50339,16.01451 -4.83187,16.0479 -4.40697,20.84587 -0.0771,2.61925 -0.13181,4.64495 0.0741,7.40088"
+		d="m 894.04893,788.63685 c 0,0 -0.61755,2.75772 -0.7015,6.84122 -0.11101,6.76104 3.83801,6.08405 4.18922,20.03219 -0.50339,16.01451 -4.83187,16.0479 -4.40697,20.84587 -0.0771,2.61925 -0.13181,4.64495 0.0741,7.40088"
 	/>
 	<path
 		inkscape:label="inner-shore-right"
 		morph="from"
-		morph-click="1"
+		morph-click="2"
 		id="inner-line-right"
 		clip-path="url(#veneCl)"
 		style="fill:none;stroke:#1839b4;stroke-width:0.832292;stroke-linecap:round"
@@ -274,8 +250,9 @@
 		<g
 			transform="matrix(1.7,0,0,1,-76,0)"
 			motion-preview-transform="matrix(1.7,0,0,1,-76,0)"
-			motion-initial="{&quot;scaleX&quot;: 1}"
-			motion-click-1="{&quot;scaleX&quot;: 1.7, &quot;transition&quot;: {&quot;duration&quot;: 700, &quot;ease&quot;: &quot;easeInOut&quot;}}"
+			motion-initial='{"scaleX": 1, "clipPath": "inset(0 0 100% 0)"}'
+			motion-click-1='{"clipPath": "inset(0 0 0% 0)", "transition": {"duration": 700, "ease": "easeInOut"}}'
+			motion-click-2='{"scaleX": 1.7, "transition": {"duration": 700, "ease": "easeInOut"}}'
 			motion-style="transform-box: fill-box; transform-origin: center"
 			id="g15"
 		>
@@ -289,8 +266,9 @@
 		<g
 			transform="matrix(1.7,0,0,1,-76,0)"
 			motion-preview-transform="matrix(1.7,0,0,1,-76,0)"
-			motion-initial="{&quot;scaleX&quot;: 1}"
-			motion-click-1="{&quot;scaleX&quot;: 1.7, &quot;transition&quot;: {&quot;duration&quot;: 700, &quot;ease&quot;: &quot;easeInOut&quot;}}"
+			motion-initial='{"scaleX": 1, "clipPath": "inset(0 0 100% 0)"}'
+			motion-click-1='{"clipPath": "inset(0 0 0% 0)", "transition": {"duration": 700, "ease": "easeInOut"}}'
+			motion-click-2='{"scaleX": 1.7, "transition": {"duration": 700, "ease": "easeInOut"}}'
 			motion-style="transform-box: fill-box; transform-origin: center"
 			id="g16"
 		>
