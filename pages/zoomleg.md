@@ -1,7 +1,13 @@
 <script setup>
 import { ref, watch, watchEffect, onMounted, onActivated } from "vue";
 import fullbodyUrl from "../assetts/fullbody.svg?url";
-import zoombodyUrl from "../assetts/zoombody.svg?url";
+import zoombodyRaw from "../assetts/zoombody.svg?raw";
+
+// SVG-Inhalt ohne äußeres <svg>-Tag für verlustfreies inline-Rendering
+const zoombodyContent = (() => {
+  const m = zoombodyRaw.match(/<svg\b[^>]*>([\s\S]*)<\/svg>/i);
+  return m ? m[1] : "";
+})();
 
 const viewBoxFull = "0 0 1920 1080";
 const boxX = 850;
@@ -91,12 +97,7 @@ function animateViewBox(to) {
       height="1080"
       :style="{ opacity: 1 - zoombodyOpacity }"
     />
-    <image
-      :href="zoombodyUrl"
-      width="1920"
-      height="1080"
-      :style="{ opacity: zoombodyOpacity }"
-    />
+    <g v-html="zoombodyContent" :style="{ opacity: zoombodyOpacity }" />
     <rect
       :x="boxX"
       :y="boxY"
